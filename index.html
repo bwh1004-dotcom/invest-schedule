@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>UNO 투자 스케줄</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg0:#05080f;--bg1:#0b1120;--bg2:#111827;--bg3:#1c2740;
+  --gold:#c9a84c;--gold2:#e8c96a;--gld3:rgba(201,168,76,0.1);
+  --grn:#10d98a;--red:#ff4466;--blu:#4b9eff;--pur:#b06aff;--org:#ff9f43;--cyn:#26c6da;
+  --t1:#eef0f5;--t2:#8892a4;--t3:#3d4a60;
+  --b1:rgba(180,140,60,0.15);--b2:rgba(180,140,60,0.38);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{height:100%;background:var(--bg0);color:var(--t1);font-family:'Noto Sans KR',sans-serif;overflow:hidden;}
+
+#app{display:flex;flex-direction:column;height:100vh;}
+
+/* HEADER */
+.hdr{background:var(--bg1);border-bottom:1px solid var(--b1);padding:0 14px;height:46px;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.logo{font-family:'Bebas Neue';font-size:20px;color:var(--gold);letter-spacing:3px;}
+.sep{color:var(--t3);font-size:14px;}
+.htitle{font-size:11px;color:var(--t2);font-family:'JetBrains Mono';}
+.hsp{flex:1;}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--grn);box-shadow:0 0 5px var(--grn);animation:blink 2s infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hclock{font-family:'JetBrains Mono';font-size:12px;color:var(--gold);background:var(--gld3);border:1px solid var(--b1);padding:3px 9px;border-radius:4px;}
+
+/* FETCH BAR */
+.fbar{background:var(--bg1);border-bottom:1px solid var(--b1);padding:8px 14px;flex-shrink:0;}
+.fbtn{width:100%;background:linear-gradient(135deg,#122808,#0c1f06);border:1px solid rgba(16,217,138,.5);border-radius:8px;padding:11px 14px;color:var(--grn);font-size:13px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR';}
+.fbtn:active{opacity:.7;}
+.fmsg{margin-top:5px;font-size:11px;font-family:'JetBrains Mono';color:var(--t3);text-align:center;min-height:16px;}
+.fmsg.ok{color:var(--grn);}
+
+/* CALENDAR */
+.calwrap{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.calnav{padding:8px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.caltitle{font-family:'Bebas Neue';font-size:24px;color:var(--gold2);letter-spacing:2px;flex:1;}
+.caltitle small{font-size:14px;color:var(--t2);font-family:'Noto Sans KR';font-weight:300;margin-left:3px;}
+.navbtn{background:var(--bg2);border:1px solid var(--b1);color:var(--gold);width:28px;height:28px;border-radius:5px;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;}
+.todaybtn{background:var(--gld3);border:1px solid var(--b2);color:var(--gold);padding:4px 10px;border-radius:5px;cursor:pointer;font-size:11px;font-family:'JetBrains Mono';}
+.legend{padding:0 14px 6px;display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0;}
+.leg{display:flex;align-items:center;gap:3px;font-size:10px;color:var(--t2);}
+.ldot{width:6px;height:6px;border-radius:1px;}
+
+/* GRID */
+.calgrid{flex:1;display:flex;flex-direction:column;overflow:hidden;border-top:1px solid var(--b1);}
+.wdrow{display:grid;grid-template-columns:repeat(7,1fr);background:var(--bg2);flex-shrink:0;}
+.wdcell{text-align:center;padding:5px 0;font-size:10px;font-family:'JetBrains Mono';color:var(--t3);}
+.wdcell.sun{color:#ff6b6b;}.wdcell.sat{color:#6b9eff;}
+.caldays{display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:1fr;flex:1;}
+.daycell{border-right:1px solid var(--b1);border-bottom:1px solid var(--b1);padding:3px 4px;cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+.daycell:nth-child(7n){border-right:none;}
+.daycell:active{background:rgba(255,255,255,.03);}
+.daycell.other{opacity:.2;pointer-events:none;}
+.daycell.today{background:var(--gld3);}
+.daycell.today::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
+.daynum{font-family:'JetBrains Mono';font-size:11px;color:var(--t2);line-height:1;margin-bottom:2px;display:flex;align-items:center;gap:2px;}
+.daycell.today .daynum{color:var(--gold);font-weight:700;}
+.daynum.sun{color:#ff6b6b!important;}.daynum.sat{color:#6b9eff!important;}
+.todaybadge{font-size:7px;background:var(--gold);color:#000;padding:1px 3px;border-radius:2px;font-weight:700;}
+.chips{display:flex;flex-direction:column;gap:1px;}
+.chip{font-size:9px;padding:1px 3px;border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:2px solid transparent;line-height:1.4;}
+.chip.earnings{background:rgba(201,168,76,.12);border-color:var(--gold);color:var(--gold);}
+.chip.earnings.pos{background:rgba(16,217,138,.1);border-color:var(--grn);color:var(--grn);}
+.chip.earnings.neg{background:rgba(255,68,102,.1);border-color:var(--red);color:var(--red);}
+.chip.ir{background:rgba(75,158,255,.1);border-color:var(--blu);color:var(--blu);}
+.chip.div{background:rgba(176,106,255,.1);border-color:var(--pur);color:var(--pur);}
+.chip.agm{background:rgba(255,159,67,.1);border-color:var(--org);color:var(--org);}
+.chip.econ{background:rgba(38,198,218,.1);border-color:var(--cyn);color:var(--cyn);}
+.chip.manual{background:rgba(100,116,139,.15);border-color:var(--t3);color:var(--t2);}
+.chipmore{font-size:8px;color:var(--t3);font-family:'JetBrains Mono';}
+
+/* TABS */
+.tabs{display:flex;border-top:1px solid var(--b1);background:var(--bg1);flex-shrink:0;}
+.tab{flex:1;padding:9px 0;text-align:center;font-size:11px;color:var(--t3);cursor:pointer;border-top:2px solid transparent;}
+.tab.active{color:var(--gold);border-top-color:var(--gold);}
+
+/* PANELS */
+.panel{display:none;flex:1;flex-direction:column;overflow:hidden;}
+.panel.show{display:flex;}
+
+/* LIST PANEL */
+.listhdr{padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--b1);flex-shrink:0;}
+.listtitle{font-size:12px;color:var(--t2);font-family:'JetBrains Mono';}
+.addbtn{background:var(--gld3);border:1px solid var(--b2);color:var(--gold);padding:5px 12px;border-radius:5px;font-size:12px;cursor:pointer;}
+.clrbtn{background:none;border:1px solid var(--b1);color:var(--t3);padding:5px 9px;border-radius:5px;font-size:11px;cursor:pointer;margin-right:4px;}
+.listscroll{flex:1;overflow-y:auto;padding:10px 14px;}
+.egroup{margin-bottom:14px;}
+.edatehdr{font-family:'JetBrains Mono';font-size:11px;color:var(--gold);margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+.edatehdr::after{content:'';flex:1;height:1px;background:var(--b1);}
+.erow{background:var(--bg2);border:1px solid var(--b1);border-radius:6px;padding:8px 10px;margin-bottom:3px;display:flex;align-items:flex-start;gap:7px;cursor:pointer;}
+.erow:active{background:var(--bg3);}
+.ebar{width:3px;border-radius:2px;align-self:stretch;flex-shrink:0;min-height:24px;}
+.ebody{flex:1;min-width:0;}
+.eco{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.edet{font-size:11px;color:var(--t2);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.edelbtn{background:none;border:none;color:var(--t3);font-size:14px;cursor:pointer;opacity:.5;}
+.edelbtn:active{color:var(--red);opacity:1;}
+.emptybox{text-align:center;padding:40px 20px;color:var(--t3);font-size:13px;line-height:2.2;}
+
+/* LINKS PANEL */
+.linkscroll{flex:1;overflow-y:auto;padding:14px;}
+.lcard{display:flex;align-items:center;gap:12px;background:var(--bg2);border:1px solid var(--b1);border-radius:8px;padding:13px;margin-bottom:8px;text-decoration:none;}
+.lcard:active{background:var(--bg3);}
+.lic{font-size:20px;flex-shrink:0;}
+.linf{flex:1;}
+.lname{font-size:13px;font-weight:500;color:var(--t1);margin-bottom:2px;}
+.ldesc{font-size:11px;color:var(--t3);}
+.larr{color:var(--t3);}
+
+/* MODALS */
+.modal{position:fixed;inset:0;background:rgba(5,8,15,.85);z-index:800;display:none;align-items:flex-end;backdrop-filter:blur(3px);}
+.modal.open{display:flex;}
+.mbox{background:var(--bg1);border:1px solid var(--b2);border-radius:16px 16px 0 0;padding:22px 18px;width:100%;max-height:85vh;overflow-y:auto;}
+.mtitle{font-size:15px;font-weight:700;color:var(--gold);margin-bottom:4px;}
+.msub{font-size:12px;color:var(--t2);font-family:'JetBrains Mono';margin-bottom:18px;}
+.fg{margin-bottom:12px;}
+.flabel{font-size:12px;color:var(--t2);margin-bottom:4px;display:block;}
+.finput,.fsel,.ftarea{width:100%;background:var(--bg0);border:1px solid var(--b2);border-radius:7px;padding:9px 12px;color:var(--t1);font-family:'Noto Sans KR';font-size:13px;outline:none;}
+.fsel option{background:var(--bg1);}
+.ftarea{resize:vertical;min-height:56px;}
+.mbtns{display:flex;gap:8px;margin-top:16px;}
+.mbtnok{flex:1;background:linear-gradient(135deg,var(--gold),#8a6020);border:none;border-radius:8px;padding:12px;color:#000;font-weight:700;font-size:14px;cursor:pointer;}
+.mbtncl{flex:1;background:var(--bg2);border:1px solid var(--b1);border-radius:8px;padding:12px;color:var(--t2);font-size:14px;cursor:pointer;}
+.dbar{height:3px;border-radius:2px;margin-bottom:14px;}
+.dco{font-size:17px;font-weight:700;margin-bottom:3px;}
+.ddate{font-size:12px;color:var(--t2);font-family:'JetBrains Mono';margin-bottom:8px;}
+.dbadge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:3px;margin-bottom:10px;}
+.dtext{font-size:13px;color:var(--t2);line-height:1.7;margin-bottom:18px;}
+</style>
+</head>
+<body>
+
+<!-- 일정 추가 모달 -->
+<div class="modal" id="m-add">
+  <div class="mbox">
+    <div class="mtitle">일정 추가</div>
+    <div class="msub" id="add-lbl"></div>
+    <div class="fg">
+      <label class="flabel">종류</label>
+      <select id="f-type" class="fsel">
+        <option value="earnings">📊 실적발표</option>
+        <option value="ir">📢 IR 일정</option>
+        <option value="div">💰 배당</option>
+        <option value="agm">🏛 주주총회</option>
+        <option value="econ">🌐 경제지표</option>
+        <option value="manual">📌 메모</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label class="flabel">기업명 / 제목</label>
+      <input type="text" id="f-co" class="finput" placeholder="삼성전자, FOMC 등">
+    </div>
+    <div class="fg">
+      <label class="flabel">상세내용</label>
+      <textarea id="f-det" class="ftarea" placeholder="메모..."></textarea>
+    </div>
+    <div class="mbtns">
+      <button class="mbtncl" onclick="closeModal('m-add')">취소</button>
+      <button class="mbtnok" onclick="saveManual()">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- 상세 모달 -->
+<div class="modal" id="m-det">
+  <div class="mbox">
+    <div class="dbar" id="d-bar"></div>
+    <div class="dco" id="d-co"></div>
+    <div class="ddate" id="d-dt"></div>
+    <div class="dbadge" id="d-badge"></div>
+    <div class="dtext" id="d-text"></div>
+    <div class="mbtns">
+      <button class="mbtncl" style="color:var(--red);border-color:rgba(255,68,102,.3)" onclick="delCurrent()">삭제</button>
+      <button class="mbtncl" onclick="closeModal('m-det')">닫기</button>
+    </div>
+  </div>
+</div>
+
+<div id="app">
+  <div class="hdr">
+    <div class="logo">UNO</div>
+    <div class="sep">|</div>
+    <div class="htitle">투자스케줄</div>
+    <div class="hsp"></div>
+    <div class="dot"></div>
+    <div class="hclock" id="hclock">--:--</div>
+  </div>
+
+  <div class="fbar">
+    <button class="fbtn" onclick="loadMonth()">🤖 이번 달 일정 불러오기</button>
+    <div class="fmsg" id="fmsg">클릭하면 이번 달 주요 일정을 자동으로 채워줍니다</div>
+  </div>
+
+  <!-- 캘린더 -->
+  <div class="calwrap" id="pcal" style="display:flex;">
+    <div class="calnav">
+      <button class="navbtn" onclick="prevMonth()">&#8249;</button>
+      <button class="navbtn" onclick="nextMonth()">&#8250;</button>
+      <div class="caltitle" id="caltitle">2026년 <small>4월</small></div>
+      <button class="todaybtn" onclick="goToday()">TODAY</button>
+    </div>
+    <div class="legend">
+      <div class="leg"><div class="ldot" style="background:var(--gold)"></div>실적</div>
+      <div class="leg"><div class="ldot" style="background:var(--grn)"></div>서프</div>
+      <div class="leg"><div class="ldot" style="background:var(--red)"></div>쇼크</div>
+      <div class="leg"><div class="ldot" style="background:var(--blu)"></div>IR</div>
+      <div class="leg"><div class="ldot" style="background:var(--pur)"></div>배당</div>
+      <div class="leg"><div class="ldot" style="background:var(--org)"></div>주총</div>
+      <div class="leg"><div class="ldot" style="background:var(--cyn)"></div>경제</div>
+    </div>
+    <div class="calgrid">
+      <div class="wdrow">
+        <div class="wdcell sun">일</div><div class="wdcell">월</div><div class="wdcell">화</div>
+        <div class="wdcell">수</div><div class="wdcell">목</div><div class="wdcell">금</div>
+        <div class="wdcell sat">토</div>
+      </div>
+      <div class="caldays" id="caldays"></div>
+    </div>
+  </div>
+
+  <!-- 목록 -->
+  <div class="panel" id="plist">
+    <div class="listhdr">
+      <div class="listtitle" id="listtitle">이번 달 일정</div>
+      <div>
+        <button class="clrbtn" onclick="clearMonth()">초기화</button>
+        <button class="addbtn" onclick="openAdd(null)">+ 추가</button>
+      </div>
+    </div>
+    <div class="listscroll" id="listscroll"></div>
+  </div>
+
+  <!-- 사이트 -->
+  <div class="panel" id="plinks">
+    <div class="linkscroll">
+      <a class="lcard" href="https://comp.fnguide.com/SVO2/ASP/SVD_comp_calendar.asp?MenuYn=Y&NewMenuID=701" target="_blank">
+        <div class="lic">📅</div><div class="linf"><div class="lname">FnGuide 기업캘린더</div><div class="ldesc">실적발표 · 배당 · 주총 일정</div></div><div class="larr">↗</div>
+      </a>
+      <a class="lcard" href="https://kind.krx.co.kr/corpgeneral/irschedule.do?method=searchIRScheduleMain&gubun=iRScheduleCalendar" target="_blank">
+        <div class="lic">🏢</div><div class="linf"><div class="lname">KIND IR일정 달력</div><div class="ldesc">KRX 상장법인 IR 행사</div></div><div class="larr">↗</div>
+      </a>
+      <a class="lcard" href="https://comp.wisereport.co.kr/wiseCalendar/EarningsReleaseMonthlyView.aspx" target="_blank">
+        <div class="lic">📈</div><div class="linf"><div class="lname">WiseReport 어닝스</div><div class="ldesc">Positive / Negative 구분</div></div><div class="larr">↗</div>
+      </a>
+      <a class="lcard" href="https://opendart.fss.or.kr/" target="_blank">
+        <div class="lic">📋</div><div class="linf"><div class="lname">DART 전자공시</div><div class="ldesc">금감원 기업 공시 원문</div></div><div class="larr">↗</div>
+      </a>
+      <a class="lcard" href="https://finance.naver.com/news/news_list.naver?mode=LSS2D&section_id=101&section_id2=258" target="_blank">
+        <div class="lic">💹</div><div class="linf"><div class="lname">네이버 증권 실적</div><div class="ldesc">국내 기업 실적 뉴스</div></div><div class="larr">↗</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" id="tab-cal" onclick="goTab('cal')">📅 캘린더</div>
+    <div class="tab" id="tab-list" onclick="goTab('list')">📋 목록</div>
+    <div class="tab" id="tab-links" onclick="goTab('links')">🔗 사이트</div>
+  </div>
+</div>
+
+<script>
+// ── 전역 변수 ──────────────────────────────────────────
+var TODAY = new Date();
+var curY = TODAY.getFullYear();
+var curM = TODAY.getMonth(); // 0-11
+var allEvs = {};
+var pendingDate = null;
+var focusEv = null;
+var focusDate = null;
+
+var WEEKDAYS = ['일','월','화','수','목','금','토'];
+var MONTHS = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+var TYPE_INFO = {
+  earnings: {label:'실적발표', color:'#c9a84c'},
+  ir:       {label:'IR일정',   color:'#4b9eff'},
+  div:      {label:'배당',     color:'#b06aff'},
+  agm:      {label:'주총',     color:'#ff9f43'},
+  econ:     {label:'경제지표', color:'#26c6da'},
+  manual:   {label:'메모',     color:'#64748b'}
+};
+
+// ── 유틸 ──────────────────────────────────────────────
+function zp(n) { return String(n).padStart(2, '0'); }
+
+function toDateStr(dateObj) {
+  return dateObj.getFullYear() + '-' + zp(dateObj.getMonth()+1) + '-' + zp(dateObj.getDate());
+}
+
+function makeId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2);
+}
+
+function getColor(ev) {
+  if (ev.type === 'earnings' && ev.positive === true)  return '#10d98a';
+  if (ev.type === 'earnings' && ev.positive === false) return '#ff4466';
+  var info = TYPE_INFO[ev.type];
+  return info ? info.color : '#64748b';
+}
+
+// ── 저장소 ────────────────────────────────────────────
+function loadStorage() {
+  try {
+    var raw = localStorage.getItem('uno_ev');
+    allEvs = raw ? JSON.parse(raw) : {};
+  } catch(e) {
+    allEvs = {};
+  }
+}
+
+function saveStorage() {
+  try {
+    localStorage.setItem('uno_ev', JSON.stringify(allEvs));
+  } catch(e) {}
+}
+
+// ── 초기화 ────────────────────────────────────────────
+window.onload = function() {
+  loadStorage();
+  setInterval(updateClock, 1000);
+  updateClock();
+  renderCalendar();
+};
+
+function updateClock() {
+  var n = new Date();
+  document.getElementById('hclock').textContent = zp(n.getHours()) + ':' + zp(n.getMinutes());
+}
+
+// ── 탭 전환 ───────────────────────────────────────────
+function goTab(name) {
+  var panels = {cal:'pcal', list:'plist', links:'plinks'};
+  Object.keys(panels).forEach(function(k) {
+    var el = document.getElementById(panels[k]);
+    var tab = document.getElementById('tab-' + k);
+    if (k === 'cal') {
+      el.style.display = (k === name) ? 'flex' : 'none';
+    } else {
+      el.className = 'panel' + (k === name ? ' show' : '');
+    }
+    tab.className = 'tab' + (k === name ? ' active' : '');
+  });
+  if (name === 'list') renderList();
+}
+
+// ── 캘린더 렌더링 ─────────────────────────────────────
+function renderCalendar() {
+  var y = curY, m = curM;
+  document.getElementById('caltitle').innerHTML = y + '년 <small>' + MONTHS[m] + '</small>';
+
+  var firstDow = new Date(y, m, 1).getDay();       // 1일의 요일 (0=일)
+  var lastDay  = new Date(y, m+1, 0).getDate();    // 이번달 마지막 날
+  var prevLast = new Date(y, m, 0).getDate();      // 전달 마지막 날
+  var todayStr = toDateStr(TODAY);
+
+  var container = document.getElementById('caldays');
+  container.innerHTML = '';
+
+  // 전달 잔여일
+  var i;
+  for (i = firstDow - 1; i >= 0; i--) {
+    var pd = prevLast - i;
+    var pdate = new Date(y, m-1, pd);
+    container.appendChild(makeDayCell(pd, toDateStr(pdate), true, false));
+  }
+
+  // 이번달
+  for (var dd = 1; dd <= lastDay; dd++) {
+    var dateObj = new Date(y, m, dd);
+    var dateStr = toDateStr(dateObj);
+    container.appendChild(makeDayCell(dd, dateStr, false, dateStr === todayStr));
+  }
+
+  // 다음달 채우기
+  var totalCells = firstDow + lastDay;
+  var remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
+  for (var nd = 1; nd <= remaining; nd++) {
+    var ndate = new Date(y, m+1, nd);
+    container.appendChild(makeDayCell(nd, toDateStr(ndate), true, false));
+  }
+}
+
+function makeDayCell(dayNum, dateStr, isOther, isToday) {
+  var cell = document.createElement('div');
+  var cls = 'daycell';
+  if (isOther) cls += ' other';
+  if (isToday) cls += ' today';
+  cell.className = cls;
+
+  // 날짜 숫자
+  var dow = new Date(dateStr).getDay();
+  var numDiv = document.createElement('div');
+  numDiv.className = 'daynum' + (dow === 0 ? ' sun' : dow === 6 ? ' sat' : '');
+  numDiv.textContent = dayNum;
+  if (isToday) {
+    var badge = document.createElement('span');
+    badge.className = 'todaybadge';
+    badge.textContent = '오늘';
+    numDiv.appendChild(badge);
+  }
+  cell.appendChild(numDiv);
+
+  // 이벤트 칩
+  var dayEvs = allEvs[dateStr] || [];
+  var chipsDiv = document.createElement('div');
+  chipsDiv.className = 'chips';
+  var maxShow = 3;
+  for (var ci = 0; ci < Math.min(dayEvs.length, maxShow); ci++) {
+    var ev = dayEvs[ci];
+    var chip = document.createElement('div');
+    var chipCls = 'chip ' + ev.type;
+    if (ev.type === 'earnings' && ev.positive === true)  chipCls += ' pos';
+    if (ev.type === 'earnings' && ev.positive === false) chipCls += ' neg';
+    chip.className = chipCls;
+    chip.textContent = ev.company;
+    (function(e, ds) {
+      chip.onclick = function(evt) { evt.stopPropagation(); openDetail(e, ds); };
+    })(ev, dateStr);
+    chipsDiv.appendChild(chip);
+  }
+  if (dayEvs.length > maxShow) {
+    var moreDiv = document.createElement('div');
+    moreDiv.className = 'chipmore';
+    moreDiv.textContent = '+' + (dayEvs.length - maxShow);
+    chipsDiv.appendChild(moreDiv);
+  }
+  cell.appendChild(chipsDiv);
+
+  if (!isOther) {
+    (function(ds) {
+      cell.onclick = function() { openAdd(ds); };
+    })(dateStr);
+  }
+
+  return cell;
+}
+
+function prevMonth() {
+  curM--;
+  if (curM < 0) { curM = 11; curY--; }
+  renderCalendar();
+}
+function nextMonth() {
+  curM++;
+  if (curM > 11) { curM = 0; curY++; }
+  renderCalendar();
+}
+function goToday() {
+  curY = TODAY.getFullYear();
+  curM = TODAY.getMonth();
+  renderCalendar();
+}
+
+// ── 목록 렌더링 ───────────────────────────────────────
+function renderList() {
+  var prefix = curY + '-' + zp(curM + 1);
+  document.getElementById('listtitle').textContent = curY + '년 ' + MONTHS[curM] + ' 일정';
+
+  var scrollEl = document.getElementById('listscroll');
+  scrollEl.innerHTML = '';
+
+  var keys = Object.keys(allEvs).filter(function(k) {
+    return k.startsWith(prefix) && allEvs[k].length > 0;
+  }).sort();
+
+  if (keys.length === 0) {
+    scrollEl.innerHTML = '<div class="emptybox">📭<br>이번 달 일정이 없습니다.<br>위 버튼을 눌러 불러오세요.</div>';
+    return;
+  }
+
+  keys.forEach(function(ds) {
+    var group = document.createElement('div');
+    group.className = 'egroup';
+
+    var hd = document.createElement('div');
+    hd.className = 'edatehdr';
+    var dObj = new Date(ds);
+    hd.textContent = (dObj.getMonth()+1) + '/' + dObj.getDate() + ' (' + WEEKDAYS[dObj.getDay()] + ')';
+    group.appendChild(hd);
+
+    allEvs[ds].forEach(function(ev) {
+      var row = document.createElement('div');
+      row.className = 'erow';
+      row.onclick = function() { openDetail(ev, ds); };
+
+      var bar = document.createElement('div');
+      bar.className = 'ebar';
+      bar.style.background = getColor(ev);
+
+      var body = document.createElement('div');
+      body.className = 'ebody';
+      body.innerHTML = '<div class="eco">' + ev.company + '</div>' +
+                       '<div class="edet">' + (ev.detail || '') + '</div>';
+
+      var delBtn = document.createElement('button');
+      delBtn.className = 'edelbtn';
+      delBtn.textContent = '✕';
+      (function(evId, evDate) {
+        delBtn.onclick = function(e) {
+          e.stopPropagation();
+          deleteEvent(evId, evDate);
+        };
+      })(ev.id, ds);
+
+      row.appendChild(bar);
+      row.appendChild(body);
+      row.appendChild(delBtn);
+      group.appendChild(row);
+    });
+
+    scrollEl.appendChild(group);
+  });
+}
+
+// ── 모달 ──────────────────────────────────────────────
+function openAdd(dateStr) {
+  pendingDate = dateStr || toDateStr(new Date(curY, curM, TODAY.getDate()));
+  var dObj = new Date(pendingDate);
+  document.getElementById('add-lbl').textContent =
+    (dObj.getMonth()+1) + '월 ' + dObj.getDate() + '일 (' + WEEKDAYS[dObj.getDay()] + ')';
+  document.getElementById('f-co').value = '';
+  document.getElementById('f-det').value = '';
+  document.getElementById('f-type').value = 'manual';
+  document.getElementById('m-add').classList.add('open');
+}
+
+function saveManual() {
+  var co = document.getElementById('f-co').value.trim();
+  if (!co) { alert('제목을 입력하세요.'); return; }
+  if (!allEvs[pendingDate]) allEvs[pendingDate] = [];
+  allEvs[pendingDate].push({
+    id: makeId(),
+    type: document.getElementById('f-type').value,
+    company: co,
+    detail: document.getElementById('f-det').value.trim(),
+    positive: null,
+    src: 'manual'
+  });
+  saveStorage();
+  closeModal('m-add');
+  renderCalendar();
+}
+
+function openDetail(ev, ds) {
+  focusEv = ev;
+  focusDate = ds;
+  var col = getColor(ev);
+  document.getElementById('d-bar').style.background = col;
+  document.getElementById('d-co').textContent = ev.company;
+  var dObj = new Date(ds);
+  document.getElementById('d-dt').textContent =
+    (dObj.getMonth()+1) + '월 ' + dObj.getDate() + '일 (' + WEEKDAYS[dObj.getDay()] + ')';
+  var badge = document.getElementById('d-badge');
+  var info = TYPE_INFO[ev.type] || TYPE_INFO.manual;
+  badge.textContent = info.label;
+  badge.style.background = col + '20';
+  badge.style.color = col;
+  document.getElementById('d-text').textContent = ev.detail || '상세 정보 없음';
+  document.getElementById('m-det').classList.add('open');
+}
+
+function delCurrent() {
+  if (focusEv && focusDate) {
+    deleteEvent(focusEv.id, focusDate);
+    closeModal('m-det');
+  }
+}
+
+function deleteEvent(evId, ds) {
+  if (!allEvs[ds]) return;
+  allEvs[ds] = allEvs[ds].filter(function(e) { return e.id !== evId; });
+  if (allEvs[ds].length === 0) delete allEvs[ds];
+  saveStorage();
+  renderCalendar();
+  var listPanel = document.getElementById('plist');
+  if (listPanel.classList.contains('show')) renderList();
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+// 모달 배경 클릭 닫기
+var modals = document.querySelectorAll('.modal');
+for (var mi = 0; mi < modals.length; mi++) {
+  (function(modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) modal.classList.remove('open');
+    });
+  })(modals[mi]);
+}
+
+function clearMonth() {
+  if (!confirm('이번 달 일정을 모두 삭제할까요?')) return;
+  var prefix = curY + '-' + zp(curM + 1);
+  Object.keys(allEvs).forEach(function(k) {
+    if (k.startsWith(prefix)) delete allEvs[k];
+  });
+  saveStorage();
+  renderCalendar();
+  var listPanel = document.getElementById('plist');
+  if (listPanel.classList.contains('show')) renderList();
+  document.getElementById('fmsg').className = 'fmsg';
+  document.getElementById('fmsg').textContent = '초기화 완료 — 다시 불러오기를 눌러주세요';
+}
+
+// ── 일정 생성기 ───────────────────────────────────────
+function loadMonth() {
+  var msg = document.getElementById('fmsg');
+  msg.className = 'fmsg';
+  msg.textContent = '생성 중...';
+
+  var schedule = buildSchedule(curY, curM);
+  var added = 0;
+
+  schedule.forEach(function(ev) {
+    if (!ev.date || !ev.company) return;
+    if (!allEvs[ev.date]) allEvs[ev.date] = [];
+    // 중복 체크
+    var dup = false;
+    for (var i = 0; i < allEvs[ev.date].length; i++) {
+      if (allEvs[ev.date][i].company === ev.company && allEvs[ev.date][i].type === ev.type) {
+        dup = true; break;
+      }
+    }
+    if (!dup) {
+      allEvs[ev.date].push({
+        id: makeId(),
+        type: ev.type,
+        company: ev.company,
+        detail: ev.detail || '',
+        positive: ev.positive,
+        src: 'gen'
+      });
+      added++;
+    }
+  });
+
+  saveStorage();
+  msg.className = 'fmsg ok';
+  msg.textContent = '✓ ' + added + '개 일정 추가 (' + curY + '년 ' + MONTHS[curM] + ')';
+  renderCalendar();
+  var listPanel = document.getElementById('plist');
+  if (listPanel.classList.contains('show')) renderList();
+}
+
+// 영업일 계산 (주말이면 다음 월요일)
+function bizDay(year, month, day) {
+  var lastOfMonth = new Date(year, month+1, 0).getDate();
+  var d = Math.min(day, lastOfMonth);
+  var dt = new Date(year, month, d);
+  var dow = dt.getDay();
+  if (dow === 0) d = Math.min(d + 1, lastOfMonth); // 일요일 → 월요일
+  if (dow === 6) d = Math.min(d + 2, lastOfMonth); // 토요일 → 월요일
+  return d;
+}
+
+// 날짜 문자열 생성
+function makeDate(year, month, day) {
+  var d = bizDay(year, month, day);
+  return year + '-' + zp(month+1) + '-' + zp(d);
+}
+
+function buildSchedule(y, mo) {
+  // mo = 0-11
+  var mn = mo + 1; // 1-12
+  var result = [];
+
+  function push(day, type, company, detail, positive) {
+    result.push({
+      date: makeDate(y, mo, day),
+      type: type,
+      company: company,
+      detail: detail || '',
+      positive: (positive === undefined ? null : positive)
+    });
+  }
+
+  // ── 실적발표 시즌 (1Q=4월, 2Q=7월, 3Q=10월, 4Q=1월) ──
+  var earningsSeason = (mn === 1 || mn === 4 || mn === 7 || mn === 10);
+  var prevQ = mn === 1 ? '4Q' + (y-1) : mn === 4 ? '1Q' + y : mn === 7 ? '2Q' + y : '3Q' + y;
+
+  if (earningsSeason) {
+    push(7,  'earnings', '삼성전자',           prevQ + ' 잠정실적 발표 - 반도체·MX 부문 실적 집계', null);
+    push(8,  'earnings', 'SK하이닉스',         prevQ + ' 실적 - HBM 수요 및 D램 가격 추이 반영', true);
+    push(9,  'earnings', 'LG에너지솔루션',     prevQ + ' 실적 - 북미 공장 가동률 및 수익성 확인', null);
+    push(10, 'earnings', '현대차',             prevQ + ' 실적 - 글로벌 판매량·영업이익률 점검', true);
+    push(10, 'earnings', '기아',               prevQ + ' 실적 - 전기차 판매 및 ROE 개선 여부', true);
+    push(11, 'earnings', 'POSCO홀딩스',        prevQ + ' 실적 - 철강 가격 및 리튬 사업 기여도', null);
+    push(11, 'earnings', 'LG전자',             prevQ + ' 실적 - 가전·B2B 매출 및 수익성 확인', null);
+    push(14, 'earnings', '카카오',             prevQ + ' 실적 - 광고·커머스·플랫폼 회복세', null);
+    push(14, 'earnings', '네이버',             prevQ + ' 실적 - 서치·커머스·AI 서비스 매출', true);
+    push(15, 'earnings', '삼성바이오로직스',   prevQ + ' 실적 - CMO 수주 증가 및 매출 성장', true);
+    push(15, 'earnings', '셀트리온',           prevQ + ' 실적 - 바이오시밀러 미국 시장 매출', null);
+    push(16, 'earnings', 'KB금융',             prevQ + ' 실적 - 이자이익·비이자이익 현황', true);
+    push(16, 'earnings', '신한지주',           prevQ + ' 실적 - NIM 추이 및 ROE 개선 여부', null);
+    push(17, 'earnings', '삼성SDI',            prevQ + ' 실적 - 전기차·ESS 배터리 수요 점검', null);
+    push(18, 'earnings', 'LG화학',             prevQ + ' 실적 - 배터리 소재·석유화학 현황', null);
+  } else {
+    // 비시즌에도 일부 공시
+    push(5,  'earnings', '삼성전자',   '분기 사업보고서 공시', null);
+    push(8,  'earnings', 'SK하이닉스', '분기 보고서 공시', null);
+    push(10, 'earnings', '현대차',     '월간 글로벌 판매 실적 공시', null);
+  }
+
+  // ── 한국은행 금통위 (2,4,5,7,8,10,11,1월) ──
+  var boMonths = [1, 2, 4, 5, 7, 8, 10, 11];
+  if (boMonths.indexOf(mn) >= 0) {
+    push(16, 'econ', '한국은행 금통위', '기준금리 결정 및 통화정책 방향 발표 (현재 동결 기조)', null);
+  }
+
+  // ── 미국 FOMC (1,3,5,6,7,9,10,12월) ──
+  var fomcMonths = [1, 3, 5, 6, 7, 9, 10, 12];
+  if (fomcMonths.indexOf(mn) >= 0) {
+    push(29, 'econ', '미국 FOMC', '연방기준금리 결정 발표 - 점도표 및 성명서 확인', null);
+  }
+
+  // ── 미국 CPI (매월 10~12일경) ──
+  push(10, 'econ', '미국 CPI', '전월 소비자물가지수 발표 - 헤드라인·근원 CPI 확인', null);
+
+  // ── 미국 고용지표 (매월 첫째 금요일) ──
+  var firstFri = 1;
+  while (new Date(y, mo, firstFri).getDay() !== 5) firstFri++;
+  push(firstFri, 'econ', '미국 고용지표', '비농업고용(NFP)·실업률 발표 - 연준 정책 변수', null);
+
+  // ── 배당락일 (3,6,9,12월 말) ──
+  if (mn === 3 || mn === 6 || mn === 9 || mn === 12) {
+    var lastD = new Date(y, mo+1, 0).getDate();
+    push(lastD - 2, 'div', '코스피 배당락', '분기 배당락일 - 이날까지 주식 보유 시 배당 수령 가능', null);
+    var nextM = mo === 11 ? 0 : mo + 1;
+    var nextY = mo === 11 ? y + 1 : y;
+    result.push({
+      date: makeDate(nextY, nextM, 15),
+      type: 'div', company: '배당금 지급',
+      detail: '전분기 배당금 지급 예정일 (증권사별 상이)',
+      positive: null
+    });
+  }
+
+  // ── IR 행사 (매월 2~3개) ──
+  push(6,  'ir', '삼성전자 컨퍼런스콜', '기관 투자자 대상 실적 설명회 - 사업 부문별 세부 현황', null);
+  push(19, 'ir', 'SK하이닉스 NDR',     'Non-Deal Roadshow - 글로벌 기관 투자자 미팅', null);
+  push(23, 'ir', '현대차 IR Day',       '중장기 전략 발표 - EV 로드맵 및 목표 ROE 제시', null);
+
+  // ── 주주총회 (3~4월) ──
+  if (mn === 3) {
+    push(20, 'agm', '삼성전자 정기주총',   '이사 선임·배당 승인 및 정관 변경 안건 처리', null);
+    push(21, 'agm', 'SK하이닉스 정기주총', '이사 선임 및 사업 보고', null);
+    push(22, 'agm', '현대차 정기주총',     '배당 승인 및 이사 선임', null);
+    push(25, 'agm', 'POSCO홀딩스 정기주총','이사 선임 및 중장기 전략 보고', null);
+  }
+  if (mn === 4) {
+    push(3, 'agm', 'LG에너지솔루션 주총', '정기 주주총회 - 이사 선임·배당', null);
+    push(4, 'agm', '카카오 주총',         '정기 주주총회 - 주요 안건 처리', null);
+  }
+
+  // ── 공모청약 ──
+  var ipoDay = [8,14,5,17,6,11,8,5,9,7,4,3][mo] || 10;
+  push(ipoDay, 'econ', 'IPO 공모청약',
+    mn + '월 주요 공모주 일반 청약 - 수요예측 결과 및 공모가 확인 후 참여', null);
+
+  return result;
+}
+</script>
+</body>
+</html>
