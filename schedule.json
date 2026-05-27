@@ -1,7 +1,23 @@
 {
-  "updated": "2026-05-28 04:29",
+  "updated": "2026-05-28 04:30",
   "source": "@darthacking",
   "events": [
+    {
+      "date": "2026-05-27",
+      "company": "3S",
+      "detail": "매출 70억 영업이익 -15억",
+      "positive": null,
+      "type": "earnings",
+      "src": "telegram"
+    },
+    {
+      "date": "2026-05-27",
+      "company": "메이슨캐피탈",
+      "detail": "매출 66억 영업이익 -13억",
+      "positive": null,
+      "type": "earnings",
+      "src": "telegram"
+    },
     {
       "date": "2026-05-28",
       "company": "바이오플러스",
