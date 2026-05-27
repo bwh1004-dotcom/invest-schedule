@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-28 03:22",
+  "updated": "2026-05-28 03:24",
   "source": "@darthacking",
   "events": [
     {
@@ -62,6 +62,14 @@
       "date": "2026-05-29",
       "company": "삼양컴텍",
       "detail": "기업설명회(IR) 개최",
+      "positive": null,
+      "type": "earnings",
+      "src": "telegram"
+    },
+    {
+      "date": "2026-06-04",
+      "company": "엣지파운드리",
+      "detail": "전환사채 납입일자",
       "positive": null,
       "type": "earnings",
       "src": "telegram"
