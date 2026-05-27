@@ -12,7 +12,7 @@
   --bg0:#05080f;--bg1:#0b1120;--bg2:#111827;--bg3:#1c2740;
   --gold:#c9a84c;--gold2:#e8c96a;--gld3:rgba(201,168,76,0.1);
   --grn:#10d98a;--red:#ff4466;--blu:#4b9eff;--pur:#b06aff;--org:#ff9f43;--cyn:#26c6da;
-  --t1:#eef0f5;--t2:#8892a4;--t3:#3d4a60;
+  --t1:#eef0f5;--fut:#ff6b35;--reb:#f59e0b;--t2:#8892a4;--t3:#3d4a60;
   --b1:rgba(180,140,60,0.15);--b2:rgba(180,140,60,0.38);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
@@ -74,7 +74,18 @@ html,body{height:100%;background:var(--bg0);color:var(--t1);font-family:'Noto Sa
 .chip.agm{background:rgba(255,159,67,.1);border-color:var(--org);color:var(--org);}
 .chip.econ{background:rgba(38,198,218,.1);border-color:var(--cyn);color:var(--cyn);}
 .chip.manual{background:rgba(100,116,139,.15);border-color:var(--t3);color:var(--t2);}
+.chip.confirmed{background:rgba(16,217,138,.12);border-color:var(--grn);color:var(--grn);}
+.chip.ai-est{opacity:.55;}
+.ev-confirmed-badge{display:inline-block;font-size:9px;background:rgba(16,217,138,.2);color:var(--grn);border:1px solid rgba(16,217,138,.4);padding:1px 5px;border-radius:3px;margin-left:5px;font-family:'JetBrains Mono';vertical-align:middle;}
+.ev-ai-badge{display:inline-block;font-size:9px;background:rgba(100,116,139,.2);color:var(--t3);border:1px solid var(--b1);padding:1px 5px;border-radius:3px;margin-left:5px;font-family:'JetBrains Mono';vertical-align:middle;}
+.erow.confirmed{border-color:rgba(16,217,138,.3);background:rgba(16,217,138,.04);}
+.erow.ai-est{opacity:.7;}
+.chip.futures{background:rgba(255,107,53,.1);border-color:#ff6b35;color:#ff6b35;}
+.chip.rebal{background:rgba(245,158,11,.1);border-color:#f59e0b;color:#f59e0b;}
 .chipmore{font-size:8px;color:var(--t3);font-family:'JetBrains Mono';}
+.daycell.holiday .daynum{color:#ff4466!important;}
+.holiday-label{font-size:8px;color:#ff4466;line-height:1.2;margin-bottom:1px;font-weight:500;}
+.leg.holiday .ldot{background:#ff4466;}
 
 /* TABS */
 .tabs{display:flex;border-top:1px solid var(--b1);background:var(--bg1);flex-shrink:0;}
@@ -161,6 +172,13 @@ html,body{height:100%;background:var(--bg0);color:var(--t1);font-family:'Noto Sa
       <label class="flabel">상세내용</label>
       <textarea id="f-det" class="ftarea" placeholder="메모..."></textarea>
     </div>
+    <div class="fg" style="display:flex;align-items:center;gap:10px;background:rgba(16,217,138,.06);border:1px solid rgba(16,217,138,.2);border-radius:7px;padding:10px 12px;">
+      <input type="checkbox" id="f-confirmed" style="width:16px;height:16px;accent-color:var(--grn);cursor:pointer;">
+      <div>
+        <div style="font-size:13px;color:var(--grn);font-weight:500;">✓ 확정 일정</div>
+        <div style="font-size:11px;color:var(--t3);">FnGuide·KIND 등에서 확인한 실제 날짜</div>
+      </div>
+    </div>
     <div class="mbtns">
       <button class="mbtncl" onclick="closeModal('m-add')">취소</button>
       <button class="mbtnok" onclick="saveManual()">저장</button>
@@ -176,6 +194,8 @@ html,body{height:100%;background:var(--bg0);color:var(--t1);font-family:'Noto Sa
     <div class="ddate" id="d-dt"></div>
     <div class="dbadge" id="d-badge"></div>
     <div class="dtext" id="d-text"></div>
+    <div id="d-src-info" style="font-size:11px;margin-bottom:16px;"></div>
+    <div id="d-confirm-btn-wrap" style="margin-bottom:4px;"></div>
     <div class="mbtns">
       <button class="mbtncl" style="color:var(--red);border-color:rgba(255,68,102,.3)" onclick="delCurrent()">삭제</button>
       <button class="mbtncl" onclick="closeModal('m-det')">닫기</button>
@@ -197,6 +217,9 @@ html,body{height:100%;background:var(--bg0);color:var(--t1);font-family:'Noto Sa
   <div class="fbar">
     <button class="fbtn" onclick="loadMonth()">🤖 이번 달 일정 불러오기</button>
     <div class="fmsg" id="fmsg"></div>
+    <div id="tg-status" style="margin-top:4px;font-size:11px;font-family:'JetBrains Mono';color:var(--t3);text-align:center;display:none;">
+      📡 텔레그램 실적 데이터 로드 중...
+    </div>
   </div>
 
   <!-- 캘린더 -->
@@ -215,6 +238,9 @@ html,body{height:100%;background:var(--bg0);color:var(--t1);font-family:'Noto Sa
       <div class="leg"><div class="ldot" style="background:var(--pur)"></div>배당</div>
       <div class="leg"><div class="ldot" style="background:var(--org)"></div>주총</div>
       <div class="leg"><div class="ldot" style="background:var(--cyn)"></div>경제</div>
+      <div class="leg"><div class="ldot" style="background:#ff4466"></div>공휴일</div>
+      <div class="leg"><div class="ldot" style="background:#ff6b35"></div>만기</div>
+      <div class="leg"><div class="ldot" style="background:#f59e0b"></div>리밸</div>
     </div>
     <div class="calgrid">
       <div class="wdrow">
@@ -277,8 +303,83 @@ var focusEv = null;
 var focusDate = null;
 
 var WEEKDAYS = ['일','월','화','수','목','금','토'];
+
+// ── 한국 공휴일 (장 휴장일) ──────────────────────────────
+var HOLIDAYS = {
+  // 2026년
+  '2026-01-01':'신정',
+  '2026-01-28':'설날 연휴',
+  '2026-01-29':'설날',
+  '2026-01-30':'설날 연휴',
+  '2026-03-01':'삼일절',
+  '2026-05-05':'어린이날',
+  '2026-05-24':'부처님 오신 날',
+  '2026-05-25':'대체휴일',
+  '2026-06-06':'현충일',
+  '2026-08-15':'광복절',
+  '2026-09-24':'추석 연휴',
+  '2026-09-25':'추석',
+  '2026-09-26':'추석 연휴',
+  '2026-10-03':'개천절',
+  '2026-10-09':'한글날',
+  '2026-12-25':'크리스마스',
+  // ── 일본 공휴일 2026 ──
+  '2026-01-01':'🇯🇵 元日(신정)',
+  '2026-01-12':'🇯🇵 成人の日(성인의날)',
+  '2026-02-11':'🇯🇵 建国記念日',
+  '2026-02-23':'🇯🇵 天皇誕生日',
+  '2026-03-20':'🇯🇵 春分の日',
+  '2026-04-29':'🇯🇵 昭和の日(골든위크↗)',
+  '2026-05-03':'🇯🇵 憲法記念日',
+  '2026-05-04':'🇯🇵 みどりの日',
+  '2026-05-06':'🇯🇵 こどもの日 대체',
+  '2026-07-20':'🇯🇵 海の日',
+  '2026-08-11':'🇯🇵 山の日',
+  '2026-09-21':'🇯🇵 敬老の日',
+  '2026-09-23':'🇯🇵 秋分の日',
+  '2026-10-12':'🇯🇵 スポーツの日',
+  '2026-11-03':'🇯🇵 文化の日',
+  '2026-11-23':'🇯🇵 勤労感謝の日',
+  '2026-12-31':'🇯🇵 대납회(증시마지막)',
+  // ── 일본 공휴일 2027 ──
+  '2027-01-01':'🇯🇵 元日(신정)',
+  '2027-01-11':'🇯🇵 成人の日',
+  '2027-02-11':'🇯🇵 建国記念日',
+  '2027-02-23':'🇯🇵 天皇誕生日',
+  '2027-03-20':'🇯🇵 春分の日',
+  '2027-04-29':'🇯🇵 昭和の日(골든위크↗)',
+  '2027-05-03':'🇯🇵 憲法記念日',
+  '2027-05-04':'🇯🇵 みどりの日',
+  '2027-05-05':'🇯🇵 こどもの日',
+  '2027-07-19':'🇯🇵 海の日',
+  '2027-08-11':'🇯🇵 山の日',
+  '2027-09-20':'🇯🇵 敬老の日',
+  '2027-09-23':'🇯🇵 秋分の日',
+  '2027-10-11':'🇯🇵 スポーツの日',
+  '2027-11-03':'🇯🇵 文化の日',
+  '2027-11-23':'🇯🇵 勤労感謝の日',
+  '2027-12-31':'🇯🇵 대납회(증시마지막)',
+  // 2027년
+  '2027-01-01':'신정',
+  '2027-02-16':'설날 연휴',
+  '2027-02-17':'설날',
+  '2027-02-18':'설날 연휴',
+  '2027-03-01':'삼일절',
+  '2027-05-05':'어린이날',
+  '2027-05-13':'부처님 오신 날',
+  '2027-06-06':'현충일',
+  '2027-08-15':'광복절',
+  '2027-09-14':'추석 연휴',
+  '2027-09-15':'추석',
+  '2027-09-16':'추석 연휴',
+  '2027-10-03':'개천절',
+  '2027-10-09':'한글날',
+  '2027-12-25':'크리스마스',
+};
 var MONTHS = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
 var TYPE_INFO = {
+  futures: {label:'선물/옵션만기', color:'#ff6b35'},
+  rebal:   {label:'리밸런싱',     color:'#f59e0b'},
   earnings: {label:'실적발표', color:'#c9a84c'},
   ir:       {label:'IR일정',   color:'#4b9eff'},
   div:      {label:'배당',     color:'#b06aff'},
@@ -327,7 +428,56 @@ window.onload = function() {
   setInterval(updateClock, 1000);
   updateClock();
   renderCalendar();
+  loadTelegramSchedule(); // 텔레그램 수집 데이터 자동 로드
 };
+
+// ── 텔레그램 schedule.json 로드 ─────────────────────────
+function loadTelegramSchedule() {
+  var tgStatus = document.getElementById('tg-status');
+  tgStatus.style.display = 'block';
+
+  fetch('schedule.json?t=' + Date.now())
+    .then(function(res) {
+      if (!res.ok) throw new Error('schedule.json 없음');
+      return res.json();
+    })
+    .then(function(data) {
+      var events = data.events || [];
+      var updated = data.updated || '';
+      var added = 0;
+
+      events.forEach(function(ev) {
+        if (!ev.date || !ev.company) return;
+        if (!allEvs[ev.date]) allEvs[ev.date] = [];
+        var dup = allEvs[ev.date].find(function(e) {
+          return e.company === ev.company && e.type === ev.type;
+        });
+        if (!dup) {
+          allEvs[ev.date].push({
+            id: makeId(),
+            type: ev.type || 'earnings',
+            company: '📡 ' + ev.company,
+            detail: ev.detail || '',
+            positive: ev.positive === true ? true : ev.positive === false ? false : null,
+            src: 'telegram'
+          });
+          added++;
+        }
+      });
+
+      if (added > 0) {
+        saveStorage();
+        renderCalendar();
+        tgStatus.style.color = 'var(--grn)';
+        tgStatus.textContent = '📡 텔레그램 실적 ' + added + '개 추가 (업데이트: ' + updated + ')';
+      } else {
+        tgStatus.textContent = '📡 텔레그램 데이터 (업데이트: ' + updated + ')';
+      }
+    })
+    .catch(function() {
+      tgStatus.style.display = 'none'; // 파일 없으면 조용히 숨김
+    });
+}
 
 function updateClock() {
   var n = new Date();
@@ -392,6 +542,8 @@ function makeDayCell(dayNum, dateStr, isOther, isToday) {
   var cls = 'daycell';
   if (isOther) cls += ' other';
   if (isToday) cls += ' today';
+  var holidayName = HOLIDAYS[dateStr];
+  if (holidayName) cls += ' holiday';
   cell.className = cls;
 
   // 날짜 숫자
@@ -407,6 +559,14 @@ function makeDayCell(dayNum, dateStr, isOther, isToday) {
   }
   cell.appendChild(numDiv);
 
+  // 공휴일 이름 표시
+  if (holidayName && !isOther) {
+    var hlabel = document.createElement('div');
+    hlabel.className = 'holiday-label';
+    hlabel.textContent = holidayName;
+    cell.appendChild(hlabel);
+  }
+
   // 이벤트 칩
   var dayEvs = allEvs[dateStr] || [];
   var chipsDiv = document.createElement('div');
@@ -418,6 +578,9 @@ function makeDayCell(dayNum, dateStr, isOther, isToday) {
     var chipCls = 'chip ' + ev.type;
     if (ev.type === 'earnings' && ev.positive === true)  chipCls += ' pos';
     if (ev.type === 'earnings' && ev.positive === false) chipCls += ' neg';
+    if (ev.src === 'confirmed') chipCls += ' confirmed';
+    else if (ev.src === 'telegram') chipCls += ' confirmed';  // 텔레그램=실제 데이터
+    else if (ev.src === 'gen' || ev.src === 'predicted') chipCls += ' ai-est';
     chip.className = chipCls;
     chip.textContent = ev.company;
     (function(e, ds) {
@@ -489,6 +652,8 @@ function renderList() {
       var row = document.createElement('div');
       row.className = 'erow';
       row.onclick = function() { openDetail(ev, ds); };
+      if (ev.src==='confirmed') row.className='erow confirmed';
+      else if (ev.src==='gen'||ev.src==='predicted') row.className='erow ai-est';
 
       var bar = document.createElement('div');
       bar.className = 'ebar';
@@ -496,7 +661,11 @@ function renderList() {
 
       var body = document.createElement('div');
       body.className = 'ebody';
-      body.innerHTML = '<div class="eco">' + ev.company + '</div>' +
+      var srcBadge = '';
+      if (ev.src==='confirmed') srcBadge = '<span class="ev-confirmed-badge">✓확정</span>';
+      else if (ev.src==='telegram') srcBadge = '<span class="ev-confirmed-badge">📡실시간</span>';
+      else if (ev.src==='gen'||ev.src==='predicted') srcBadge = '<span class="ev-ai-badge">AI추정</span>';
+      body.innerHTML = '<div class="eco">' + ev.company + srcBadge + '</div>' +
                        '<div class="edet">' + (ev.detail || '') + '</div>';
 
       var delBtn = document.createElement('button');
@@ -528,6 +697,7 @@ function openAdd(dateStr) {
   document.getElementById('f-co').value = '';
   document.getElementById('f-det').value = '';
   document.getElementById('f-type').value = 'manual';
+  document.getElementById('f-confirmed').checked = false;
   document.getElementById('m-add').classList.add('open');
 }
 
@@ -535,13 +705,14 @@ function saveManual() {
   var co = document.getElementById('f-co').value.trim();
   if (!co) { alert('제목을 입력하세요.'); return; }
   if (!allEvs[pendingDate]) allEvs[pendingDate] = [];
+  var isConfirmed = document.getElementById('f-confirmed').checked;
   allEvs[pendingDate].push({
     id: makeId(),
     type: document.getElementById('f-type').value,
     company: co,
     detail: document.getElementById('f-det').value.trim(),
     positive: null,
-    src: 'manual'
+    src: isConfirmed ? 'confirmed' : 'manual'
   });
   saveStorage();
   closeModal('m-add');
@@ -563,7 +734,38 @@ function openDetail(ev, ds) {
   badge.style.background = col + '20';
   badge.style.color = col;
   document.getElementById('d-text').textContent = ev.detail || '상세 정보 없음';
+  // 소스 정보 표시
+  var srcInfo = document.getElementById('d-src-info');
+  var confirmBtnWrap = document.getElementById('d-confirm-btn-wrap');
+  if (ev.src === 'confirmed') {
+    srcInfo.innerHTML = '<span style="color:var(--grn);">✓ 확정 일정</span> <span style="color:var(--t3);font-family:JetBrains Mono">— 직접 확인한 실제 날짜</span>';
+    confirmBtnWrap.innerHTML = '';
+  } else if (ev.src === 'gen' || ev.src === 'predicted') {
+    srcInfo.innerHTML = '<span style="color:var(--t3);">🤖 AI 추정</span> <span style="color:var(--t3);font-family:JetBrains Mono">— 패턴 기반 예측값</span>';
+    confirmBtnWrap.innerHTML = '<button onclick="confirmCurrentEv()" style="width:100%;background:rgba(16,217,138,.1);border:1px solid rgba(16,217,138,.35);border-radius:7px;padding:9px;color:var(--grn);font-size:13px;cursor:pointer;margin-bottom:4px;">✓ 이 날짜 확정으로 변경</button>';
+  } else {
+    srcInfo.innerHTML = '<span style="color:var(--t2);">📌 직접 입력</span>';
+    confirmBtnWrap.innerHTML = '<button onclick="confirmCurrentEv()" style="width:100%;background:rgba(16,217,138,.1);border:1px solid rgba(16,217,138,.35);border-radius:7px;padding:9px;color:var(--grn);font-size:13px;cursor:pointer;margin-bottom:4px;">✓ 확정으로 변경</button>';
+  }
   document.getElementById('m-det').classList.add('open');
+}
+
+function confirmCurrentEv() {
+  if (!focusEv || !focusDate) return;
+  if (!allEvs[focusDate]) return;
+  for (var i=0;i<allEvs[focusDate].length;i++) {
+    if (allEvs[focusDate][i].id === focusEv.id) {
+      allEvs[focusDate][i].src = 'confirmed';
+      focusEv = allEvs[focusDate][i];
+      break;
+    }
+  }
+  saveStorage();
+  renderCalendar();
+  if (document.getElementById('plist').classList.contains('show')) renderList();
+  // 상세모달 갱신
+  document.getElementById('d-src-info').innerHTML = '<span style="color:var(--grn);">✓ 확정 일정으로 변경됐어!</span>';
+  document.getElementById('d-confirm-btn-wrap').innerHTML = '';
 }
 
 function delCurrent() {
@@ -612,159 +814,328 @@ function clearMonth() {
 }
 
 // ── 일정 생성기 ───────────────────────────────────────
-function loadMonth() {
-  var msg = document.getElementById('fmsg');
-  msg.className = 'fmsg';
-  msg.textContent = '생성 중...';
 
-  var schedule = buildSchedule(curY, curM);
-  var added = 0;
-
-  schedule.forEach(function(ev) {
-    if (!ev.date || !ev.company) return;
-    if (!allEvs[ev.date]) allEvs[ev.date] = [];
-    // 중복 체크
-    var dup = false;
-    for (var i = 0; i < allEvs[ev.date].length; i++) {
-      if (allEvs[ev.date][i].company === ev.company && allEvs[ev.date][i].type === ev.type) {
-        dup = true; break;
-      }
-    }
-    if (!dup) {
-      allEvs[ev.date].push({
-        id: makeId(),
-        type: ev.type,
-        company: ev.company,
-        detail: ev.detail || '',
-        positive: ev.positive,
-        src: 'gen'
-      });
-      added++;
-    }
-  });
-
-  saveStorage();
-  msg.className = 'fmsg ok';
-  msg.textContent = '✓ ' + added + '개 일정 추가 (' + curY + '년 ' + MONTHS[curM] + ')';
-  renderCalendar();
-  var listPanel = document.getElementById('plist');
-  if (listPanel.classList.contains('show')) renderList();
+// n번째 특정 요일 반환 (dow: 0=일~6=토, n: 1=첫째...)
+function nthWeekday(y, mo, dow, n) {
+  var d = 1, count = 0;
+  while (d <= 31) {
+    var dt = new Date(y, mo, d);
+    if (dt.getMonth() !== mo) break;
+    if (dt.getDay() === dow) { count++; if (count === n) return d; }
+    d++;
+  }
+  return 10;
 }
 
-// 영업일 계산 (주말이면 다음 월요일)
+// 영업일 보정
 function bizDay(year, month, day) {
-  var lastOfMonth = new Date(year, month+1, 0).getDate();
-  var d = Math.min(day, lastOfMonth);
-  var dt = new Date(year, month, d);
-  var dow = dt.getDay();
-  if (dow === 0) d = Math.min(d + 1, lastOfMonth); // 일요일 → 월요일
-  if (dow === 6) d = Math.min(d + 2, lastOfMonth); // 토요일 → 월요일
+  var last = new Date(year, month+1, 0).getDate();
+  var d = Math.min(day, last);
+  var dow = new Date(year, month, d).getDay();
+  if (dow === 0) d = Math.min(d+1, last);
+  if (dow === 6) d = Math.min(d+2, last);
   return d;
 }
 
-// 날짜 문자열 생성
 function makeDate(year, month, day) {
   var d = bizDay(year, month, day);
-  return year + '-' + zp(month+1) + '-' + zp(d);
+  return year+'-'+zp(month+1)+'-'+zp(d);
 }
 
 function buildSchedule(y, mo) {
-  // mo = 0-11
-  var mn = mo + 1; // 1-12
+  var mn = mo+1;
   var result = [];
 
   function push(day, type, company, detail, positive) {
+    var last = new Date(y, mo+1, 0).getDate();
+    if (day < 1 || day > last) return;
     result.push({
       date: makeDate(y, mo, day),
-      type: type,
-      company: company,
-      detail: detail || '',
-      positive: (positive === undefined ? null : positive)
+      type: type, company: company,
+      detail: detail||'',
+      positive: positive===undefined ? null : positive
     });
   }
 
-  // ── 실적발표 시즌 (1Q=4월, 2Q=7월, 3Q=10월, 4Q=1월) ──
-  var earningsSeason = (mn === 1 || mn === 4 || mn === 7 || mn === 10);
-  var prevQ = mn === 1 ? '4Q' + (y-1) : mn === 4 ? '1Q' + y : mn === 7 ? '2Q' + y : '3Q' + y;
+  // ── 2027년: 2026 수동입력 기반 자동예측 ──────────────────
+  if (y === 2027) {
+    var prevPrefix = '2026-'+zp(mn);
+    Object.keys(allEvs).filter(function(k){
+      return k.startsWith(prevPrefix) && allEvs[k].length > 0;
+    }).forEach(function(ds){
+      allEvs[ds].forEach(function(ev){
+        if (ev.src === 'manual') {
+          var ds2027 = ds.replace('2026','2027');
+          result.push({
+            date: ds2027, type: ev.type,
+            company: ev.company+' (예측)',
+            detail: '2026 실적 기반 예측 | '+ev.detail,
+            positive: null, src: 'predicted'
+          });
+        }
+      });
+    });
+  }
 
-  if (earningsSeason) {
-    push(7,  'earnings', '삼성전자',           prevQ + ' 잠정실적 발표 - 반도체·MX 부문 실적 집계', null);
-    push(8,  'earnings', 'SK하이닉스',         prevQ + ' 실적 - HBM 수요 및 D램 가격 추이 반영', true);
-    push(9,  'earnings', 'LG에너지솔루션',     prevQ + ' 실적 - 북미 공장 가동률 및 수익성 확인', null);
-    push(10, 'earnings', '현대차',             prevQ + ' 실적 - 글로벌 판매량·영업이익률 점검', true);
-    push(10, 'earnings', '기아',               prevQ + ' 실적 - 전기차 판매 및 ROE 개선 여부', true);
-    push(11, 'earnings', 'POSCO홀딩스',        prevQ + ' 실적 - 철강 가격 및 리튬 사업 기여도', null);
-    push(11, 'earnings', 'LG전자',             prevQ + ' 실적 - 가전·B2B 매출 및 수익성 확인', null);
-    push(14, 'earnings', '카카오',             prevQ + ' 실적 - 광고·커머스·플랫폼 회복세', null);
-    push(14, 'earnings', '네이버',             prevQ + ' 실적 - 서치·커머스·AI 서비스 매출', true);
-    push(15, 'earnings', '삼성바이오로직스',   prevQ + ' 실적 - CMO 수주 증가 및 매출 성장', true);
-    push(15, 'earnings', '셀트리온',           prevQ + ' 실적 - 바이오시밀러 미국 시장 매출', null);
-    push(16, 'earnings', 'KB금융',             prevQ + ' 실적 - 이자이익·비이자이익 현황', true);
-    push(16, 'earnings', '신한지주',           prevQ + ' 실적 - NIM 추이 및 ROE 개선 여부', null);
-    push(17, 'earnings', '삼성SDI',            prevQ + ' 실적 - 전기차·ESS 배터리 수요 점검', null);
-    push(18, 'earnings', 'LG화학',             prevQ + ' 실적 - 배터리 소재·석유화학 현황', null);
+  // ── FOMC 실제 일정 ────────────────────────────────────────
+  var fomc2026 = {1:29, 3:19, 5:7, 6:18, 7:30, 9:17, 10:29, 12:10};
+  var fomc2027 = {1:28, 3:18, 5:6, 6:17, 7:29, 9:16, 10:28, 12:9};
+  var fomcMap = (y===2026) ? fomc2026 : fomc2027;
+  if (fomcMap[mn]) push(fomcMap[mn],'econ','🇺🇸 미국 FOMC','연방기준금리 결정 - 점도표·성명서 확인',null);
+
+  // ── 한국은행 금통위 실제 일정 ────────────────────────────
+  var bok2026 = {1:16, 2:27, 4:17, 5:29, 7:10, 8:28, 10:16, 11:27};
+  var bok2027 = {1:15, 2:26, 4:16, 5:28, 7:9,  8:27, 10:15, 11:26};
+  var bokMap = (y===2026) ? bok2026 : bok2027;
+  if (bokMap[mn]) push(bokMap[mn],'econ','🇰🇷 한국은행 금통위','기준금리 결정 및 통화정책 방향 발표',null);
+
+  // ── 미국 CPI (매월 둘째 수요일) ──────────────────────────
+  push(nthWeekday(y,mo,3,2),'econ','🇺🇸 미국 CPI','소비자물가지수 발표 - 헤드라인·근원 CPI',null);
+
+  // ── 미국 고용지표 (매월 첫째 금요일) ─────────────────────
+  push(nthWeekday(y,mo,5,1),'econ','🇺🇸 미국 고용지표','비농업고용(NFP)·실업률 - 연준 정책 변수',null);
+
+  // ── 실적발표 시즌 (1·4·7·10월) ───────────────────────────
+  var isEarnings = (mn===1||mn===4||mn===7||mn===10);
+  var prevQ = mn===1?'4Q'+(y-1):mn===4?'1Q'+y:mn===7?'2Q'+y:'3Q'+y;
+
+  if (isEarnings) {
+    push(7, 'earnings','삼성전자',          prevQ+' 잠정실적 - 반도체·MX·SDC 부문',null);
+    push(8, 'earnings','SK하이닉스',        prevQ+' 실적 - HBM 수요 및 D램 가격',true);
+    push(9, 'earnings','LG에너지솔루션',    prevQ+' 실적 - 북미 공장 가동률',null);
+    push(10,'earnings','현대차',            prevQ+' 실적 - 글로벌 판매량·영업이익률',true);
+    push(10,'earnings','기아',              prevQ+' 실적 - 전기차 판매·ROE 개선',true);
+    push(11,'earnings','POSCO홀딩스',       prevQ+' 실적 - 철강 가격·리튬 사업',null);
+    push(11,'earnings','LG전자',            prevQ+' 실적 - 가전·B2B 매출',null);
+    push(14,'earnings','카카오',            prevQ+' 실적 - 광고·커머스 회복세',null);
+    push(14,'earnings','네이버',            prevQ+' 실적 - 서치·커머스·AI 매출',true);
+    push(15,'earnings','삼성바이오로직스',  prevQ+' 실적 - CMO 수주 증가',true);
+    push(15,'earnings','셀트리온',          prevQ+' 실적 - 바이오시밀러 미국 매출',null);
+    push(16,'earnings','KB금융',            prevQ+' 실적 - 이자이익·비이자이익',true);
+    push(16,'earnings','신한지주',          prevQ+' 실적 - NIM 추이·ROE 개선',null);
+    push(17,'earnings','삼성SDI',           prevQ+' 실적 - 전기차·ESS 배터리',null);
+    push(18,'earnings','LG화학',            prevQ+' 실적 - 배터리소재·석유화학',null);
   } else {
-    // 비시즌에도 일부 공시
-    push(5,  'earnings', '삼성전자',   '분기 사업보고서 공시', null);
-    push(8,  'earnings', 'SK하이닉스', '분기 보고서 공시', null);
-    push(10, 'earnings', '현대차',     '월간 글로벌 판매 실적 공시', null);
+    push(5, 'earnings','삼성전자',  '분기 사업보고서 공시',null);
+    push(8, 'earnings','SK하이닉스','분기 보고서 공시',null);
+    push(10,'earnings','현대차',    '월간 글로벌 판매 실적',null);
   }
 
-  // ── 한국은행 금통위 (2,4,5,7,8,10,11,1월) ──
-  var boMonths = [1, 2, 4, 5, 7, 8, 10, 11];
-  if (boMonths.indexOf(mn) >= 0) {
-    push(16, 'econ', '한국은행 금통위', '기준금리 결정 및 통화정책 방향 발표 (현재 동결 기조)', null);
+  // ── 배당락일 (3·6·9·12월) ────────────────────────────────
+  if (mn===3||mn===6||mn===9||mn===12) {
+    var lastD = new Date(y,mo+1,0).getDate();
+    push(lastD-2,'div','코스피 배당락','분기 배당락일 - 이날까지 보유시 배당 수령',null);
+    var nmo = mo===11?0:mo+1, ny = mo===11?y+1:y;
+    result.push({date:makeDate(ny,nmo,15),type:'div',company:'배당금 지급',detail:'전분기 배당금 지급 예정일',positive:null});
   }
 
-  // ── 미국 FOMC (1,3,5,6,7,9,10,12월) ──
-  var fomcMonths = [1, 3, 5, 6, 7, 9, 10, 12];
-  if (fomcMonths.indexOf(mn) >= 0) {
-    push(29, 'econ', '미국 FOMC', '연방기준금리 결정 발표 - 점도표 및 성명서 확인', null);
+  // ── IR 행사 ───────────────────────────────────────────────
+  push(6, 'ir','삼성전자 컨퍼런스콜','기관 투자자 대상 실적 설명회',null);
+  push(19,'ir','SK하이닉스 NDR',    'Non-Deal Roadshow - 글로벌 기관 미팅',null);
+  push(23,'ir','현대차 IR Day',     '중장기 전략·EV 로드맵 발표',null);
+
+  // ── 주주총회 ─────────────────────────────────────────────
+  if (mn===3) {
+    push(20,'agm','삼성전자 정기주총',   '이사선임·배당승인',null);
+    push(21,'agm','SK하이닉스 정기주총', '이사선임·사업보고',null);
+    push(22,'agm','현대차 정기주총',     '배당승인·이사선임',null);
+    push(25,'agm','POSCO홀딩스 정기주총','이사선임·중장기전략',null);
+  }
+  if (mn===4) {
+    push(3,'agm','LG에너지솔루션 주총','정기 주주총회',null);
+    push(4,'agm','카카오 주총',        '정기 주주총회',null);
   }
 
-  // ── 미국 CPI (매월 10~12일경) ──
-  push(10, 'econ', '미국 CPI', '전월 소비자물가지수 발표 - 헤드라인·근원 CPI 확인', null);
+  // ── 공모청약 ─────────────────────────────────────────────
+  var ipoDays=[8,14,5,17,6,11,8,5,9,7,4,3];
+  push(ipoDays[mo],'econ','🇰🇷 IPO 공모청약',mn+'월 주요 공모주 일반 청약',null);
 
-  // ── 미국 고용지표 (매월 첫째 금요일) ──
-  var firstFri = 1;
-  while (new Date(y, mo, firstFri).getDay() !== 5) firstFri++;
-  push(firstFri, 'econ', '미국 고용지표', '비농업고용(NFP)·실업률 발표 - 연준 정책 변수', null);
 
-  // ── 배당락일 (3,6,9,12월 말) ──
-  if (mn === 3 || mn === 6 || mn === 9 || mn === 12) {
-    var lastD = new Date(y, mo+1, 0).getDate();
-    push(lastD - 2, 'div', '코스피 배당락', '분기 배당락일 - 이날까지 주식 보유 시 배당 수령 가능', null);
-    var nextM = mo === 11 ? 0 : mo + 1;
-    var nextY = mo === 11 ? y + 1 : y;
-    result.push({
-      date: makeDate(nextY, nextM, 15),
-      type: 'div', company: '배당금 지급',
-      detail: '전분기 배당금 지급 예정일 (증권사별 상이)',
-      positive: null
+  // ── 선물/옵션 만기 ────────────────────────────────────────
+  var optExp = nthWeekday(y,mo,4,2); // 매월 둘째 목요일
+  var isTripleWitch = (mn===3||mn===6||mn===9||mn===12);
+  if (isTripleWitch) {
+    push(optExp,'futures','🇰🇷 트리플위칭',
+      '코스피200 선물·옵션·개별주식 선물·옵션 동시만기 - 변동성 주의',null);
+  } else {
+    push(optExp,'futures','🇰🇷 코스피200 옵션만기',
+      '매월 둘째 목요일 - 만기 전후 외국인·기관 수급 주의',null);
+  }
+
+  // ── 미국 옵션 만기 ────────────────────────────────────────
+  var usOptExp = nthWeekday(y,mo,5,3); // 매월 셋째 금요일
+  var isUsTriple = (mn===3||mn===6||mn===9||mn===12);
+  if (isUsTriple) {
+    push(usOptExp,'futures','🇺🇸 쿼드러플위칭',
+      '미국 주가지수 선물·옵션·개별주식 선물·옵션 동시만기 - S&P500 변동성',null);
+  } else {
+    push(usOptExp,'futures','🇺🇸 미국 옵션만기',
+      '미국 개별주식·ETF 옵션 만기 - 셋째 금요일 수급 주의',null);
+  }
+
+  // ── MSCI 리밸런싱 ─────────────────────────────────────────
+  // 2,5,8,11월 마지막 영업일 (반기: 5·11월 대형, 분기: 2·8월 소형)
+  var msciBig = [5,11]; // 반기 리뷰 (대형)
+  var msciSmall = [2,8]; // 분기 리뷰 (소형)
+  if (msciBig.indexOf(mn) >= 0) {
+    var lastBiz = new Date(y,mo+1,0).getDate();
+    while(new Date(y,mo,lastBiz).getDay()===0||new Date(y,mo,lastBiz).getDay()===6) lastBiz--;
+    push(lastBiz,'rebal','🌐 MSCI 반기 리밸',
+      'MSCI EM 지수 편입·편출 적용일 - 외국인 수급 대규모 변동',null);
+  } else if (msciSmall.indexOf(mn) >= 0) {
+    var lastBiz2 = new Date(y,mo+1,0).getDate();
+    while(new Date(y,mo,lastBiz2).getDay()===0||new Date(y,mo,lastBiz2).getDay()===6) lastBiz2--;
+    push(lastBiz2,'rebal','🌐 MSCI 분기 리밸',
+      'MSCI EM 분기 리뷰 적용일 - 종목별 비중 조정',null);
+  }
+
+  // ── MSCI 리뷰 발표일 (적용 약 2주 전) ───────────────────
+  // 5월→4월말, 11월→10월말, 2월→1월말, 8월→7월말
+  var msciAnnounce = {4:'🌐 MSCI 반기 리뷰 발표',1:'🌐 MSCI 분기 리뷰 발표',10:'🌐 MSCI 반기 리뷰 발표',7:'🌐 MSCI 분기 리뷰 발표'};
+  if (msciAnnounce[mn]) {
+    var lastBiz3 = new Date(y,mo+1,0).getDate();
+    while(new Date(y,mo,lastBiz3).getDay()===0||new Date(y,mo,lastBiz3).getDay()===6) lastBiz3--;
+    push(lastBiz3,'rebal',msciAnnounce[mn],'편입·편출 종목 발표 - 다음달 말 적용',null);
+  }
+
+  // ── 코스피200 정기 지수변경 ──────────────────────────────
+  if (mn===6||mn===12) {
+    push(nthWeekday(y,mo,5,2),'rebal','🇰🇷 코스피200 지수변경',
+      '코스피200 구성종목 편입·편출 적용 - 패시브 수급 이동',null);
+  }
+
+  // ── 한국 수출입 통계 (매월 1일) ──────────────────────────
+  push(1,'econ','🇰🇷 수출입 통계','전월 수출입 실적 발표 - 반도체·자동차 수출 동향',null);
+
+  // ── 한국 소비자물가(CPI) (매월 초) ───────────────────────
+  push(nthWeekday(y,mo,2,1),'econ','🇰🇷 한국 CPI','전월 소비자물가지수 발표',null);
+
+  // ── 미국 PPI (CPI 다음날, 둘째 목요일) ──────────────────
+  push(nthWeekday(y,mo,4,2)-4,'econ','🇺🇸 미국 PPI','생산자물가지수 발표 - 인플레이션 선행지표',null);
+
+  // ── 미국 소매판매 (매월 둘째 주 목요일) ──────────────────
+  push(nthWeekday(y,mo,4,2)+1,'econ','🇺🇸 미국 소매판매','전월 소매판매 발표 - 소비 동향 확인',null);
+
+  // ── 미국 PCE (매월 마지막 금요일) ────────────────────────
+  var lastFri = new Date(y,mo+1,0).getDate();
+  while(new Date(y,mo,lastFri).getDay()!==5) lastFri--;
+  push(lastFri,'econ','🇺🇸 미국 PCE','개인소비지출 물가지수 - 연준 선호 인플레이션 지표',null);
+
+  // ── 미국 ISM 제조업 (매월 첫째 영업일) ───────────────────
+  var firstBiz=1;
+  while(new Date(y,mo,firstBiz).getDay()===0||new Date(y,mo,firstBiz).getDay()===6) firstBiz++;
+  push(firstBiz,'econ','🇺🇸 ISM 제조업','제조업 구매관리자지수 - 50 이상=확장',null);
+
+  // ── 미국 ISM 서비스업 (매월 셋째 영업일) ─────────────────
+  var thirdBiz=1,bizCnt=0;
+  while(bizCnt<3){
+    var dow=new Date(y,mo,thirdBiz).getDay();
+    if(dow!==0&&dow!==6) bizCnt++;
+    if(bizCnt<3) thirdBiz++;
+  }
+  push(thirdBiz,'econ','🇺🇸 ISM 서비스업','서비스업 PMI - 미국 경기 선행지표',null);
+
+  // ── 미국 컨슈머 컨피던스 (매월 마지막 화요일) ────────────
+  var lastTue = new Date(y,mo+1,0).getDate();
+  while(new Date(y,mo,lastTue).getDay()!==2) lastTue--;
+  push(lastTue,'econ','🇺🇸 소비자신뢰지수','컨퍼런스보드 소비자신뢰지수 발표',null);
+
+  // ── 미국 GDP (분기별: 1·4·7·10월 말) ────────────────────
+  if (mn===1||mn===4||mn===7||mn===10) {
+    var qStr = mn===1?'4Q'+(y-1)+'(예비)':mn===4?'1Q'+y+'(예비)':mn===7?'2Q'+y+'(예비)':'3Q'+y+'(예비)';
+    push(nthWeekday(y,mo,4,4),'econ','미국 GDP '+qStr,'분기 국내총생산 성장률 발표 (연율 환산)',null);
+  }
+
+  // ── 한국 금융통화위원회 의사록 ───────────────────────────
+  // 금통위 약 2주 후 공개
+  if (bokMap[mn]) {
+    var minutesDay = Math.min(bokMap[mn]+14, new Date(y,mo+1,0).getDate());
+    push(minutesDay,'econ','🇰🇷 금통위 의사록','직전 금통위 회의 의사록 공개 - 위원별 의견 확인',null);
+  }
+
+
+  // ════════════════════════════════════════════════════
+  // 🇯🇵 일본 고정 일정
+  // ════════════════════════════════════════════════════
+
+  // ── 일본은행(BOJ) 금융정책결정회의 ───────────────────
+  var boj2026 = {1:24, 3:19, 4:30, 6:17, 7:31, 9:19, 10:30, 12:19};
+  var boj2027 = {1:22, 3:18, 4:28, 6:16, 7:30, 9:18, 10:29, 12:18};
+  var bojMap = (y===2026) ? boj2026 : boj2027;
+  if (bojMap[mn]) push(bojMap[mn],'econ','🇯🇵 BOJ 금융정책회의','일본은행 기준금리 결정 - 엔화·닛케이 변동 주의',null);
+
+  // ── 닛케이225 SQ (매월 둘째 금요일) ──────────────────
+  var jpSQ = nthWeekday(y,mo,5,2);
+  var isJpTriple = (mn===3||mn===6||mn===9||mn===12);
+  if (isJpTriple) {
+    push(jpSQ,'futures','🇯🇵 닛케이 SQ (쿼드러플위칭)','닛케이225 선물·옵션·개별주식 동시만기 - 대규모 수급 이동',null);
+  } else {
+    push(jpSQ,'futures','🇯🇵 닛케이 SQ','닛케이225 선물·옵션 특별청산지수 산출일',null);
+  }
+
+  // ── 일본 CPI (매월 셋째 금요일) ─────────────────────
+  push(nthWeekday(y,mo,5,3),'econ','🇯🇵 일본 CPI','일본 전국 소비자물가지수 발표',null);
+
+  // ── 일본 수출입 통계 (매월 셋째 수요일) ──────────────
+  push(nthWeekday(y,mo,3,3),'econ','🇯🇵 일본 무역통계','전월 수출입 통계 - 반도체·자동차·관광 동향',null);
+
+  // ── 일본 소매판매·산업생산 (매월 마지막 영업일) ──────
+  var jpLastBiz = new Date(y,mo+1,0).getDate();
+  while(new Date(y,mo,jpLastBiz).getDay()===0||new Date(y,mo,jpLastBiz).getDay()===6) jpLastBiz--;
+  push(jpLastBiz,'econ','🇯🇵 소매판매·산업생산','전월 소매판매·광공업생산지수 발표',null);
+
+  // ── 일본 GDP (분기별: 2·5·8·11월) ────────────────────
+  if (mn===2||mn===5||mn===8||mn===11) {
+    var jpQ = mn===2?'3Q'+(y-1)+'결산':mn===5?'4Q'+(y-1)+'결산':mn===8?'1Q'+y+'결산':'2Q'+y+'결산';
+    push(nthWeekday(y,mo,5,2),'econ','🇯🇵 일본 GDP ('+jpQ+')','국내총생산 성장률 속보치 발표',null);
+  }
+
+  // ── 일본 기업 실적 (결산 시즌) ───────────────────────
+  // 일본은 3월 결산법인이 대부분 → 5·8·11·2월에 실적 집중
+  var jpEarnings = {
+    5:[ // 4Q(연간) 결산 발표
+      [8,'도요타자동차','FY결산 - 글로벌 판매·EV 전략 점검',true],
+      [9,'소니그룹','FY결산 - 게임·영화·반도체 부문',true],
+      [10,'소프트뱅크그룹','FY결산 - AI 투자포트폴리오 현황',null],
+      [11,'닌텐도','FY결산 - 스위치 판매량·신작 라인업',true],
+      [12,'패스트리테일링','FY결산 - 유니클로 글로벌 매출',null],
+      [13,'미쓰비시UFJ(MUFG)','FY결산 - 해외자산·NIM 개선',null],
+      [14,'키엔스','FY결산 - FA 수요 및 수익성',true],
+      [15,'NTT','FY결산 - 통신·데이터센터 수익',null],
+    ],
+    8:[ // 1Q 결산
+      [5,'도요타자동차','1Q 결산 - 분기 판매·영업이익',null],
+      [6,'소니그룹','1Q 결산 - 게임·PS5 판매',null],
+      [7,'소프트뱅크그룹','1Q 결산 - AI 펀드 현황',null],
+      [8,'닌텐도','1Q 결산 - 신작·하드웨어 판매',null],
+      [9,'미쓰비시UFJ','1Q 결산 - 해외대출·수익성',null],
+    ],
+    11:[ // 2Q 결산
+      [5,'도요타자동차','2Q 결산 - 상반기 실적 점검',null],
+      [6,'소니그룹','2Q 결산 - 연간 가이던스 확인',null],
+      [7,'소프트뱅크그룹','2Q 결산 - AI투자 포트폴리오',null],
+      [8,'닌텐도','2Q 결산 - 연말 신작 라인업',true],
+      [9,'패스트리테일링','2Q 결산 - 동계 시즌 매출',null],
+    ],
+    2:[ // 3Q 결산
+      [5,'도요타자동차','3Q 결산 - 연간 전망 상향 여부',null],
+      [6,'소니그룹','3Q 결산 - 크리스마스 시즌 게임',null],
+      [7,'닌텐도','3Q 결산 - 연말 판매 성수기',true],
+      [8,'미쓰비시UFJ','3Q 결산 - 미국금리 영향 점검',null],
+    ]
+  };
+  if (jpEarnings[mn]) {
+    jpEarnings[mn].forEach(function(e){
+      push(e[0],'earnings','🇯🇵 '+e[1],e[2],e[3]);
     });
   }
 
-  // ── IR 행사 (매월 2~3개) ──
-  push(6,  'ir', '삼성전자 컨퍼런스콜', '기관 투자자 대상 실적 설명회 - 사업 부문별 세부 현황', null);
-  push(19, 'ir', 'SK하이닉스 NDR',     'Non-Deal Roadshow - 글로벌 기관 투자자 미팅', null);
-  push(23, 'ir', '현대차 IR Day',       '중장기 전략 발표 - EV 로드맵 및 목표 ROE 제시', null);
+  // ── TOPIX 리밸런싱 (매월 말) ─────────────────────────
+  push(jpLastBiz,'rebal','🇯🇵 TOPIX 월간 리밸런싱','도쿄증권거래소 TOPIX 지수 월말 정기 조정',null);
 
-  // ── 주주총회 (3~4월) ──
-  if (mn === 3) {
-    push(20, 'agm', '삼성전자 정기주총',   '이사 선임·배당 승인 및 정관 변경 안건 처리', null);
-    push(21, 'agm', 'SK하이닉스 정기주총', '이사 선임 및 사업 보고', null);
-    push(22, 'agm', '현대차 정기주총',     '배당 승인 및 이사 선임', null);
-    push(25, 'agm', 'POSCO홀딩스 정기주총','이사 선임 및 중장기 전략 보고', null);
-  }
-  if (mn === 4) {
-    push(3, 'agm', 'LG에너지솔루션 주총', '정기 주주총회 - 이사 선임·배당', null);
-    push(4, 'agm', '카카오 주총',         '정기 주주총회 - 주요 안건 처리', null);
-  }
-
-  // ── 공모청약 ──
-  var ipoDay = [8,14,5,17,6,11,8,5,9,7,4,3][mo] || 10;
-  push(ipoDay, 'econ', 'IPO 공모청약',
-    mn + '월 주요 공모주 일반 청약 - 수요예측 결과 및 공모가 확인 후 참여', null);
+  // ════════════════════════════════════════════════════
+  // 🇺🇸 기존 미국·🇰🇷 한국 일정에 국기 이모지 보완
+  // ════════════════════════════════════════════════════
 
   return result;
 }
