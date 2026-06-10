@@ -257,6 +257,7 @@ html,body{height:100%;background:var(--bg0);color:var(--t1);font-family:'Noto Sa
     <div class="listhdr">
       <div class="listtitle" id="listtitle">이번 달 일정</div>
       <div>
+        <button class="clrbtn" onclick="dedupMonth()" style="color:var(--org);">중복제거</button>
         <button class="clrbtn" onclick="clearMonth()">초기화</button>
         <button class="addbtn" onclick="openAdd(null)">+ 추가</button>
       </div>
@@ -484,7 +485,14 @@ function loadTelegramSchedule() {
       if (ev.status === '완료') detail = '✓ ' + detail;
 
       if (!allEvs[date]) allEvs[date] = [];
-      var dup = allEvs[date].find(function(e){ return e.company === company; });
+      // 강화된 중복 체크: company 핵심어 + date + detail 앞 15자
+      var companyCore = company.replace('📋 ','').replace('📡 ','').slice(0,15);
+      var detailCore  = detail.slice(0,15);
+      var dup = allEvs[date].find(function(e){
+        var ec = (e.company||'').replace('📋 ','').replace('📡 ','').slice(0,15);
+        var ed = (e.detail||'').slice(0,15);
+        return ec === companyCore && ed === detailCore;
+      });
       if (!dup) {
         allEvs[date].push({
           id: makeId(), type: type, company: company,
@@ -841,6 +849,29 @@ for (var mi = 0; mi < modals.length; mi++) {
       if (e.target === modal) modal.classList.remove('open');
     });
   })(modals[mi]);
+}
+
+function dedupMonth() {
+  var prefix = curY + '-' + zp(curM + 1);
+  var total = 0, removed = 0;
+  Object.keys(allEvs).filter(function(k){ return k.startsWith(prefix); }).forEach(function(date) {
+    var seen = {};
+    var before = allEvs[date].length;
+    allEvs[date] = allEvs[date].filter(function(ev) {
+      var key = (ev.company||'').replace('📋 ','').replace('📡 ','').slice(0,15)
+              + '|' + (ev.detail||'').slice(0,15);
+      if (seen[key]) return false;
+      seen[key] = true;
+      return true;
+    });
+    removed += before - allEvs[date].length;
+    total += allEvs[date].length;
+    if (allEvs[date].length === 0) delete allEvs[date];
+  });
+  saveStorage();
+  renderCalendar();
+  renderList();
+  alert('중복 제거 완료! ' + removed + '개 삭제 → 총 ' + total + '개 남음');
 }
 
 function clearMonth() {
