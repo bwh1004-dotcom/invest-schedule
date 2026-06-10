@@ -431,52 +431,96 @@ window.onload = function() {
   loadTelegramSchedule(); // 텔레그램 수집 데이터 자동 로드
 };
 
-// ── 텔레그램 schedule.json 로드 ─────────────────────────
+// ── 외부 JSON 파일 로드 (schedule.json + 월별 파일) ─────
 function loadTelegramSchedule() {
   var tgStatus = document.getElementById('tg-status');
   tgStatus.style.display = 'block';
+  tgStatus.textContent = '📡 데이터 로드 중...';
 
-  fetch('schedule.json?t=' + Date.now())
-    .then(function(res) {
-      if (!res.ok) throw new Error('schedule.json 없음');
-      return res.json();
-    })
-    .then(function(data) {
-      var events = data.events || [];
-      var updated = data.updated || '';
-      var added = 0;
+  var totalAdded = 0;
 
-      events.forEach(function(ev) {
-        if (!ev.date || !ev.company) return;
-        if (!allEvs[ev.date]) allEvs[ev.date] = [];
-        var dup = allEvs[ev.date].find(function(e) {
-          return e.company === ev.company && e.type === ev.type;
-        });
-        if (!dup) {
-          allEvs[ev.date].push({
-            id: makeId(),
-            type: ev.type || 'earnings',
-            company: '📡 ' + ev.company,
-            detail: ev.detail || '',
-            positive: ev.positive === true ? true : ev.positive === false ? false : null,
-            src: 'telegram'
-          });
-          added++;
-        }
-      });
+  // 현재 연월 기반 파일명 생성
+  var now = new Date();
+  var monthFiles = [];
+  for (var i = 0; i <= 2; i++) {
+    var d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    var yy = d.getFullYear();
+    var mm = String(d.getMonth()+1).padStart(2,'0');
+    monthFiles.push(yy + mm + '_schedule.json');  // e.g. 202606_schedule.json
+    monthFiles.push(d.toLocaleString('en',{month:'long'}).toLowerCase() + yy + '_schedule.json'); // e.g. june2026_schedule.json
+  }
+  monthFiles.push('schedule.json'); // 텔레그램 수집 데이터
 
-      if (added > 0) {
-        saveStorage();
-        renderCalendar();
-        tgStatus.style.color = 'var(--grn)';
-        tgStatus.textContent = '📡 텔레그램 실적 ' + added + '개 추가 (업데이트: ' + updated + ')';
-      } else {
-        tgStatus.textContent = '📡 텔레그램 데이터 (업데이트: ' + updated + ')';
+  // 중복 제거
+  monthFiles = monthFiles.filter(function(v,i,a){return a.indexOf(v)===i;});
+
+  function importEvents(events, src) {
+    var added = 0;
+    events.forEach(function(ev) {
+      var date = ev.date || '';
+      if (!date || date.indexOf('-') < 0 || date.includes('월중')) return;
+
+      // 카테고리 → 타입 변환 (수동 JSON 포맷 지원)
+      var type = ev.type || 'manual';
+      if (ev.category) {
+        var catMap = {
+          '빅테크':'econ','반도체':'econ','바이오':'econ','에너지':'econ',
+          '로봇':'econ','전기차/배터리':'econ','방산/우주':'econ','조선/해양':'econ',
+          '금융/IPO':'econ','미디어/K팝':'manual','스포츠':'manual'
+        };
+        type = catMap[ev.category] || 'manual';
       }
-    })
-    .catch(function() {
-      tgStatus.style.display = 'none'; // 파일 없으면 조용히 숨김
+
+      // company 이름 생성
+      var company = ev.company || ev.event || '';
+      if (ev.event && !ev.company) company = ev.event;
+      if (company.length > 30) company = company.slice(0,30);
+      company = '📋 ' + company;
+
+      // detail 생성
+      var detail = ev.detail || ev.event || '';
+      if (ev.category) detail = '[' + ev.category + '] ' + (ev.event || detail);
+      if (ev.time_kst) detail += ' | ' + ev.time_kst + ' KST';
+      if (ev.status === '완료') detail = '✓ ' + detail;
+
+      if (!allEvs[date]) allEvs[date] = [];
+      var dup = allEvs[date].find(function(e){ return e.company === company; });
+      if (!dup) {
+        allEvs[date].push({
+          id: makeId(), type: type, company: company,
+          detail: detail,
+          positive: ev.positive === true ? true : ev.positive === false ? false : null,
+          src: src || 'import'
+        });
+        added++;
+      }
     });
+    return added;
+  }
+
+  // 파일들 순차 로드
+  var promises = monthFiles.map(function(filename) {
+    return fetch(filename + '?t=' + Date.now())
+      .then(function(res) { return res.ok ? res.json() : null; })
+      .then(function(data) {
+        if (!data) return 0;
+        var events = data.events || data.schedule || [];
+        return importEvents(events, filename.includes('schedule') ? 'telegram' : 'import');
+      })
+      .catch(function(){ return 0; });
+  });
+
+  Promise.all(promises).then(function(results) {
+    totalAdded = results.reduce(function(a,b){return a+b;}, 0);
+    if (totalAdded > 0) {
+      saveStorage();
+      renderCalendar();
+      tgStatus.style.color = 'var(--grn)';
+      tgStatus.textContent = '📋 외부 일정 ' + totalAdded + '개 로드됨';
+    } else {
+      tgStatus.style.display = 'none';
+    }
+  });
 }
 
 function updateClock() {
