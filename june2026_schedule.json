@@ -1,39 +1,69 @@
 {
   "meta": {
-    "title": "2026년 6월 13일 브리핑 신규 일정",
+    "title": "2026년 6월 15일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-06-13",
-    "note": "june2026_schedule.json 및 이전 업데이트 기준 신규 항목만 수록"
+    "updated": "2026-06-15",
+    "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
+      "date": "2026-06-15",
+      "category": "방산/우주",
+      "event": "유로사토리 2026 파리 개막 (~6/19, 2,300개사·우크라이나 80개사, 노르 빌팽트 전시장)",
+      "status": "진행중"
+    },
+    {
       "date": "2026-06-16",
-      "category": "금융/IPO",
-      "event": "Kardigan(KARD) IPO 나스닥 상장 개시 (심혈관 신약 3종, $320M 조달)",
+      "category": "미디어/K팝",
+      "event": "STAYC 6th 싱글 '2:LOVE' 발매",
       "status": "예정"
     },
     {
-      "date": "2026-09-01",
+      "date": "2026-06-17",
       "category": "미디어/K팝",
-      "event": "BTS LA 아리랑 월드투어 Day 1 (~9/2, 5~6)",
+      "event": "ONF 2nd 앨범 'Open The Door' 발매",
       "status": "예정"
     },
     {
-      "date": "2026-10-00",
+      "date": "2026-06-17",
       "category": "미디어/K팝",
-      "event": "BTS 상파울루 ARIRANG 월드투어 (10월)",
-      "status": "예정 (날짜 미확정)"
+      "event": "USPEER 'WICKED GAME' 발매",
+      "status": "예정"
     },
     {
-      "date": "2026-10-00",
-      "category": "미디어/K팝",
-      "event": "BTS 부에노스아이레스 ARIRANG 월드투어 (10월)",
-      "status": "예정 (날짜 미확정)"
+      "date": "2026-06-18",
+      "category": "반도체",
+      "event": "미국 연준(Fed) 6월 금리 결정",
+      "status": "예정"
     },
     {
-      "date": "2026-11-27",
+      "date": "2026-06-18",
       "category": "미디어/K팝",
-      "event": "LISA 라스베이거스 레지던시 'VIVA LA LISA' Day 1 (시저스팰리스, ~11/28)",
+      "event": "Secret Number 스페셜 미니앨범 'Secret Flavor' 발매",
+      "status": "예정"
+    },
+    {
+      "date": "2026-06-22",
+      "category": "반도체",
+      "event": "NVIDIA S&P500 지수 편입 (패시브 펀드 강제 매수)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-06-22",
+      "category": "반도체",
+      "event": "Marvell S&P500 지수 편입 (패시브 펀드 강제 매수)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-06-24",
+      "category": "반도체",
+      "event": "Micron Technology Q3 FY2026 실적 발표 (HBM 공급 스토리 검증 핵심 지표)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-07-20",
+      "category": "방산/우주",
+      "event": "판버러 에어쇼 2026 개막 (영국, ~7/24, 유럽 최대 에어쇼)",
       "status": "예정"
     }
   ]
