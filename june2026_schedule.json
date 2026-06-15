@@ -1,70 +1,71 @@
 {
   "meta": {
-    "title": "2026년 6월 15일 브리핑 신규 일정",
+    "title": "2026년 6월 16일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-06-15",
+    "updated": "2026-06-16",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
-      "date": "2026-06-15",
-      "category": "방산/우주",
-      "event": "유로사토리 2026 파리 개막 (~6/19, 2,300개사·우크라이나 80개사, 노르 빌팽트 전시장)",
-      "status": "진행중"
-    },
-    {
-      "date": "2026-06-16",
-      "category": "미디어/K팝",
-      "event": "STAYC 6th 싱글 '2:LOVE' 발매",
+      "date": "2026-06-17",
+      "category": "에너지",
+      "event": "EU 러시아 파이프라인 가스 금지 공식 발동 (D-day)",
       "status": "예정"
     },
     {
       "date": "2026-06-17",
-      "category": "미디어/K팝",
-      "event": "ONF 2nd 앨범 'Open The Door' 발매",
+      "category": "에너지",
+      "event": "IEA 6월 석유시장 보고서(OMR) 발표",
       "status": "예정"
     },
     {
       "date": "2026-06-17",
+      "category": "빅테크",
+      "event": "VivaTech Paris 2026 개막 (~6/20, AI·스타트업 글로벌 행사)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-06-17",
+      "category": "반도체",
+      "event": "미국 연준(Fed) FOMC 금리 결정 발표 + 파월→워시 신임 의장 첫 기자회견",
+      "time": "오후 2시 (미국 동부 기준)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-06-19",
+      "category": "지정학",
+      "event": "미·이란 평화협정 스위스 공식 서명식 (호르무즈 전면 개방 MOU 최종 확정)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-06-27",
+      "category": "빅테크",
+      "event": "OpenAI GPT-4.5 ChatGPT 서비스 공식 퇴역",
+      "status": "예정"
+    },
+    {
+      "date": "2026-06-30",
+      "category": "빅테크",
+      "event": "콜로라도 소비자 AI 보호법 시행 (미국 최초 주급 포괄 AI 법)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-08-00",
       "category": "미디어/K팝",
-      "event": "USPEER 'WICKED GAME' 발매",
+      "event": "STAYC 팬콘서트 투어 'STAY CLOSER' 서울 개막 (마닐라·마카오·타이베이·퍼스·멜버른·시드니 포함 7개 도시)",
+      "status": "예정 (날짜 미확정)"
+    },
+    {
+      "date": "2026-08-02",
+      "category": "빅테크",
+      "event": "EU AI Act 고위험 AI 시스템 전면 시행",
       "status": "예정"
     },
     {
-      "date": "2026-06-18",
-      "category": "반도체",
-      "event": "미국 연준(Fed) 6월 금리 결정",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-18",
-      "category": "미디어/K팝",
-      "event": "Secret Number 스페셜 미니앨범 'Secret Flavor' 발매",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-22",
-      "category": "반도체",
-      "event": "NVIDIA S&P500 지수 편입 (패시브 펀드 강제 매수)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-22",
-      "category": "반도체",
-      "event": "Marvell S&P500 지수 편입 (패시브 펀드 강제 매수)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-24",
-      "category": "반도체",
-      "event": "Micron Technology Q3 FY2026 실적 발표 (HBM 공급 스토리 검증 핵심 지표)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-07-20",
-      "category": "방산/우주",
-      "event": "판버러 에어쇼 2026 개막 (영국, ~7/24, 유럽 최대 에어쇼)",
-      "status": "예정"
+      "date": "2027-02-00",
+      "category": "빅테크",
+      "event": "OpenAI AI 디바이스 (스마트폰 형태, MediaTek·Qualcomm 칩, TSMC N2P) 출시 예정",
+      "status": "예정 (날짜 미확정)"
     }
   ]
 }
