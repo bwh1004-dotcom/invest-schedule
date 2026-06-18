@@ -1,71 +1,70 @@
 {
   "meta": {
-    "title": "2026년 6월 16일 브리핑 신규 일정",
+    "title": "2026년 6월 19일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-06-16",
+    "updated": "2026-06-19",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
-      "date": "2026-06-17",
-      "category": "에너지",
-      "event": "EU 러시아 파이프라인 가스 금지 공식 발동 (D-day)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-17",
-      "category": "에너지",
-      "event": "IEA 6월 석유시장 보고서(OMR) 발표",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-17",
-      "category": "빅테크",
-      "event": "VivaTech Paris 2026 개막 (~6/20, AI·스타트업 글로벌 행사)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-17",
-      "category": "반도체",
-      "event": "미국 연준(Fed) FOMC 금리 결정 발표 + 파월→워시 신임 의장 첫 기자회견",
-      "time": "오후 2시 (미국 동부 기준)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-19",
-      "category": "지정학",
-      "event": "미·이란 평화협정 스위스 공식 서명식 (호르무즈 전면 개방 MOU 최종 확정)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-27",
-      "category": "빅테크",
-      "event": "OpenAI GPT-4.5 ChatGPT 서비스 공식 퇴역",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-30",
-      "category": "빅테크",
-      "event": "콜로라도 소비자 AI 보호법 시행 (미국 최초 주급 포괄 AI 법)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-08-00",
+      "date": "2026-06-26",
       "category": "미디어/K팝",
-      "event": "STAYC 팬콘서트 투어 'STAY CLOSER' 서울 개막 (마닐라·마카오·타이베이·퍼스·멜버른·시드니 포함 7개 도시)",
-      "status": "예정 (날짜 미확정)"
-    },
-    {
-      "date": "2026-08-02",
-      "category": "빅테크",
-      "event": "EU AI Act 고위험 AI 시스템 전면 시행",
+      "event": "BABYMONSTER 2차 월드투어 'CHOOM' 서울 개막 (잠실실내체육관, ~6/28, 첫 단독 돔 투어 포함)",
       "status": "예정"
     },
     {
-      "date": "2027-02-00",
-      "category": "빅테크",
-      "event": "OpenAI AI 디바이스 (스마트폰 형태, MediaTek·Qualcomm 칩, TSMC N2P) 출시 예정",
-      "status": "예정 (날짜 미확정)"
+      "date": "2026-09-05",
+      "category": "미디어/K팝",
+      "event": "BABYMONSTER CHOOM 월드투어 마닐라",
+      "status": "예정"
+    },
+    {
+      "date": "2026-09-12",
+      "category": "미디어/K팝",
+      "event": "BABYMONSTER CHOOM 월드투어 마카오",
+      "status": "예정"
+    },
+    {
+      "date": "2026-10-17",
+      "category": "미디어/K팝",
+      "event": "BABYMONSTER CHOOM 월드투어 자카르타",
+      "status": "예정"
+    },
+    {
+      "date": "2026-11-07",
+      "category": "미디어/K팝",
+      "event": "BABYMONSTER CHOOM 월드투어 방콕 (~11/8)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-11-14",
+      "category": "미디어/K팝",
+      "event": "BABYMONSTER CHOOM 월드투어 쿠알라룸푸르",
+      "status": "예정"
+    },
+    {
+      "date": "2026-07-00",
+      "category": "에너지",
+      "event": "세계 3차 SMR & 첨단 원자로 컨퍼런스 런던 개최 (KHNP i-SMR·두산에너빌리티 Rolls-Royce SMR 한국 사례 조명)",
+      "status": "예정 (7월, 날짜 미확정)"
+    },
+    {
+      "date": "2026-08-12",
+      "category": "미디어/K팝",
+      "event": "MAMAMOO 뉴욕 월드투어 (UBS 아레나)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-08-15",
+      "category": "미디어/K팝",
+      "event": "MAMAMOO 시카고 월드투어 (윈트러스트 아레나)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-08-25",
+      "category": "미디어/K팝",
+      "event": "MAMAMOO LA 월드투어",
+      "status": "예정"
     }
   ]
 }
