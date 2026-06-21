@@ -1,69 +1,51 @@
 {
   "meta": {
-    "title": "2026년 6월 19일 브리핑 신규 일정",
+    "title": "2026년 6월 22일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-06-19",
+    "updated": "2026-06-22",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
-      "date": "2026-06-26",
-      "category": "미디어/K팝",
-      "event": "BABYMONSTER 2차 월드투어 'CHOOM' 서울 개막 (잠실실내체육관, ~6/28, 첫 단독 돔 투어 포함)",
+      "date": "2026-06-24",
+      "category": "반도체/AI",
+      "event": "Qualcomm Investor Day (뉴욕) — Dragonfly 로드맵 공개",
       "status": "예정"
     },
     {
-      "date": "2026-09-05",
-      "category": "미디어/K팝",
-      "event": "BABYMONSTER CHOOM 월드투어 마닐라",
+      "date": "2026-06-25",
+      "category": "바이오",
+      "event": "BIO International Convention 2026 폐막 (샌디에이고, 6/22~25)",
       "status": "예정"
     },
     {
-      "date": "2026-09-12",
-      "category": "미디어/K팝",
-      "event": "BABYMONSTER CHOOM 월드투어 마카오",
+      "date": "2026-07-21",
+      "category": "로봇/자동화",
+      "event": "A3 Automate 웨비나 — 산업용 로봇팔 안전 표준 업데이트",
       "status": "예정"
     },
     {
-      "date": "2026-10-17",
-      "category": "미디어/K팝",
-      "event": "BABYMONSTER CHOOM 월드투어 자카르타",
+      "date": "2026-07-30",
+      "category": "방산/우주",
+      "event": "2026 공군·우주 서밋",
       "status": "예정"
     },
     {
-      "date": "2026-11-07",
-      "category": "미디어/K팝",
-      "event": "BABYMONSTER CHOOM 월드투어 방콕 (~11/8)",
+      "date": "2026-08-18",
+      "category": "로봇/자동화",
+      "event": "A3 Automate 웨비나 — 모바일 로봇 안전 표준",
       "status": "예정"
     },
     {
-      "date": "2026-11-14",
-      "category": "미디어/K팝",
-      "event": "BABYMONSTER CHOOM 월드투어 쿠알라룸푸르",
+      "date": "2026-08-27",
+      "category": "방산/우주",
+      "event": "2026 해군 서밋",
       "status": "예정"
     },
     {
-      "date": "2026-07-00",
-      "category": "에너지",
-      "event": "세계 3차 SMR & 첨단 원자로 컨퍼런스 런던 개최 (KHNP i-SMR·두산에너빌리티 Rolls-Royce SMR 한국 사례 조명)",
-      "status": "예정 (7월, 날짜 미확정)"
-    },
-    {
-      "date": "2026-08-12",
-      "category": "미디어/K팝",
-      "event": "MAMAMOO 뉴욕 월드투어 (UBS 아레나)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-08-15",
-      "category": "미디어/K팝",
-      "event": "MAMAMOO 시카고 월드투어 (윈트러스트 아레나)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-08-25",
-      "category": "미디어/K팝",
-      "event": "MAMAMOO LA 월드투어",
+      "date": "2026-09-17",
+      "category": "로봇/자동화",
+      "event": "A3 Automate 웨비나 — 산업용 AI 케이스 스터디",
       "status": "예정"
     }
   ]
