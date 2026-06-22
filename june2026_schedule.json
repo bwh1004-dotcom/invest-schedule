@@ -1,52 +1,28 @@
 {
   "meta": {
-    "title": "2026년 6월 22일 브리핑 신규 일정",
+    "title": "2026년 6월 23일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-06-22",
+    "updated": "2026-06-23",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
-      "date": "2026-06-24",
-      "category": "반도체/AI",
-      "event": "Qualcomm Investor Day (뉴욕) — Dragonfly 로드맵 공개",
-      "status": "예정"
-    },
-    {
-      "date": "2026-06-25",
+      "date": "2026-07-15",
       "category": "바이오",
-      "event": "BIO International Convention 2026 폐막 (샌디에이고, 6/22~25)",
+      "event": "BIO Asia-Taiwan 2026 개막 (~7/19, 타이베이)",
       "status": "예정"
     },
     {
-      "date": "2026-07-21",
-      "category": "로봇/자동화",
-      "event": "A3 Automate 웨비나 — 산업용 로봇팔 안전 표준 업데이트",
-      "status": "예정"
+      "date": "2026-09-00",
+      "category": "전기차/배터리",
+      "event": "CATL 나트륨이온 ESS (Naxtra 셀) 첫 납품 — HyperStrong 60GWh 계약 이행",
+      "status": "예정 (2026년 9월)"
     },
     {
-      "date": "2026-07-30",
-      "category": "방산/우주",
-      "event": "2026 공군·우주 서밋",
-      "status": "예정"
-    },
-    {
-      "date": "2026-08-18",
-      "category": "로봇/자동화",
-      "event": "A3 Automate 웨비나 — 모바일 로봇 안전 표준",
-      "status": "예정"
-    },
-    {
-      "date": "2026-08-27",
-      "category": "방산/우주",
-      "event": "2026 해군 서밋",
-      "status": "예정"
-    },
-    {
-      "date": "2026-09-17",
-      "category": "로봇/자동화",
-      "event": "A3 Automate 웨비나 — 산업용 AI 케이스 스터디",
-      "status": "예정"
+      "date": "2026-00-00",
+      "category": "바이오",
+      "event": "Takeda zasocitinib (TAK-279) FDA NDA 신청 예정 (2026 회계연도 내)",
+      "status": "예정 (2026년 중)"
     }
   ]
 }
