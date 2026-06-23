@@ -1,28 +1,76 @@
 {
   "meta": {
-    "title": "2026년 6월 23일 브리핑 신규 일정",
+    "title": "2026년 6월 24일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-06-23",
+    "updated": "2026-06-24",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
-      "date": "2026-07-15",
-      "category": "바이오",
-      "event": "BIO Asia-Taiwan 2026 개막 (~7/19, 타이베이)",
+      "date": "2026-07-25",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 'RUN IT' 월드투어 서울 개막 (KSPO DOME, ~8/2, 5회 공연)",
       "status": "예정"
     },
     {
-      "date": "2026-09-00",
-      "category": "전기차/배터리",
-      "event": "CATL 나트륨이온 ESS (Naxtra 셀) 첫 납품 — HyperStrong 60GWh 계약 이행",
-      "status": "예정 (2026년 9월)"
+      "date": "2026-08-07",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 정규앨범 'THIS & THAT' 발매 (8트랙, 빌보드 200 9연속 1위 도전)",
+      "status": "예정"
     },
     {
-      "date": "2026-00-00",
-      "category": "바이오",
-      "event": "Takeda zasocitinib (TAK-279) FDA NDA 신청 예정 (2026 회계연도 내)",
-      "status": "예정 (2026년 중)"
+      "date": "2026-08-29",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 도쿄 국립경기장 공연 (~8/30, 해외 남성 아티스트 첫 단독 공연)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-09-05",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 나고야 공연 (~9/6)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-09-11",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 브라질 록 인 리오 헤드라이너",
+      "status": "예정"
+    },
+    {
+      "date": "2026-09-19",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 오사카 공연 (~9/20)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-10-24",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 후쿠오카 공연",
+      "status": "예정"
+    },
+    {
+      "date": "2026-12-05",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 홍콩 공연",
+      "status": "예정"
+    },
+    {
+      "date": "2026-12-12",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 타이베이 공연",
+      "status": "예정"
+    },
+    {
+      "date": "2027-01-16",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 방콕 공연 (~1/17)",
+      "status": "예정"
+    },
+    {
+      "date": "2027-03-06",
+      "category": "미디어/K팝",
+      "event": "Stray Kids 싱가포르 공연 (~3/7)",
+      "status": "예정"
     }
   ]
 }
