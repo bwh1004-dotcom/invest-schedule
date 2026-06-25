@@ -1,76 +1,34 @@
 {
   "meta": {
-    "title": "2026년 6월 24일 브리핑 신규 일정",
+    "title": "2026년 6월 26일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-06-24",
+    "updated": "2026-06-26",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
-      "date": "2026-07-25",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 'RUN IT' 월드투어 서울 개막 (KSPO DOME, ~8/2, 5회 공연)",
+      "date": "2026-07-08",
+      "category": "빅테크/AI",
+      "event": "Anthropic ID 인증 정책(Persona 시스템, Peter Thiel 후원) 시행 → Fable 5 미국 우선 복구 유력 시나리오",
       "status": "예정"
     },
     {
-      "date": "2026-08-07",
+      "date": "2026-07-17",
       "category": "미디어/K팝",
-      "event": "Stray Kids 정규앨범 'THIS & THAT' 발매 (8트랙, 빌보드 200 9연속 1위 도전)",
+      "event": "ATEEZ 팬미팅 'ATINY'S VOYAGE: TEENY MYSTERY' 서울 개막 (~7/19, 고려대 화정체육관)",
       "status": "예정"
     },
     {
-      "date": "2026-08-29",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 도쿄 국립경기장 공연 (~8/30, 해외 남성 아티스트 첫 단독 공연)",
+      "date": "2027-09-01",
+      "category": "바이오",
+      "event": "Sanofi 신임 R&D 총괄 Paulo Fontoura 취임 (Xaira AI CMO 출신, AI 네이티브 R&D 전략 강화)",
       "status": "예정"
     },
     {
-      "date": "2026-09-05",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 나고야 공연 (~9/6)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-09-11",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 브라질 록 인 리오 헤드라이너",
-      "status": "예정"
-    },
-    {
-      "date": "2026-09-19",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 오사카 공연 (~9/20)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-10-24",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 후쿠오카 공연",
-      "status": "예정"
-    },
-    {
-      "date": "2026-12-05",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 홍콩 공연",
-      "status": "예정"
-    },
-    {
-      "date": "2026-12-12",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 타이베이 공연",
-      "status": "예정"
-    },
-    {
-      "date": "2027-01-16",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 방콕 공연 (~1/17)",
-      "status": "예정"
-    },
-    {
-      "date": "2027-03-06",
-      "category": "미디어/K팝",
-      "event": "Stray Kids 싱가포르 공연 (~3/7)",
-      "status": "예정"
+      "date": "2027-00-00",
+      "category": "반도체",
+      "event": "Kioxia ADR 나스닥 상장 예정 (2027년 봄)",
+      "status": "예정 (2027년 봄)"
     }
   ]
 }
