@@ -1,34 +1,46 @@
 {
   "meta": {
-    "title": "2026년 6월 26일 브리핑 신규 일정",
+    "title": "2026년 6월 29일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-06-26",
+    "updated": "2026-06-29",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
-      "date": "2026-07-08",
-      "category": "빅테크/AI",
-      "event": "Anthropic ID 인증 정책(Persona 시스템, Peter Thiel 후원) 시행 → Fable 5 미국 우선 복구 유력 시나리오",
+      "date": "2026-06-30",
+      "category": "로봇/AI",
+      "event": "UWORLD 세계 최초 소비자 풀사이즈 휴머노이드 로봇 공식 출시 (UBTECH, 9/15까지 배송)",
       "status": "예정"
     },
     {
-      "date": "2026-07-17",
-      "category": "미디어/K팝",
-      "event": "ATEEZ 팬미팅 'ATINY'S VOYAGE: TEENY MYSTERY' 서울 개막 (~7/19, 고려대 화정체육관)",
+      "date": "2026-06-30",
+      "category": "로봇/중국",
+      "event": "중국 MIIT·SASAC 지방정부 이행계획 제출 마감 (2026년 말 1만 대 배치 계획)",
       "status": "예정"
     },
     {
-      "date": "2027-09-01",
-      "category": "바이오",
-      "event": "Sanofi 신임 R&D 총괄 Paulo Fontoura 취임 (Xaira AI CMO 출신, AI 네이티브 R&D 전략 강화)",
+      "date": "2026-06-30",
+      "category": "전기차/배터리",
+      "event": "미국 가정용 충전 세액공제 30C 완전 종료 (연방 EV 보조금 4종 전멸)",
       "status": "예정"
     },
     {
-      "date": "2027-00-00",
-      "category": "반도체",
-      "event": "Kioxia ADR 나스닥 상장 예정 (2027년 봄)",
-      "status": "예정 (2027년 봄)"
+      "date": "2026-07-04",
+      "category": "에너지/원자력",
+      "event": "DOE Radiant Kaleidos 3번째 마이크로원자로 임계 달성 목표 D-5",
+      "status": "예정"
+    },
+    {
+      "date": "2026-07-20",
+      "category": "방산/우주",
+      "event": "판버러 인터내셔널 에어쇼 2026 개막 (~7/24, 영국 햄프셔, 역대 최대 규모)",
+      "status": "예정"
+    },
+    {
+      "date": "2026-07-25",
+      "category": "방산/외교",
+      "event": "NATO 헤이그 정상회의 (~7/28, GDP 5% 목표·우크라이나 가입 의제)",
+      "status": "예정"
     }
   ]
 }
