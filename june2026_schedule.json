@@ -1,45 +1,39 @@
 {
   "meta": {
-    "title": "2026년 7월 1일 브리핑 신규 일정",
+    "title": "2026년 7월 2일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-07-01",
+    "updated": "2026-07-02",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
-      "date": "2026-07-06",
-      "category": "미디어/K팝",
-      "event": "(여자)아이들 9th 미니 'We Made' 타이틀 'Gimme Dat Love' 발매 + BTS ARIRANG 런던 공연 (~7/7)",
+      "date": "2026-07-04",
+      "category": "에너지/원자력",
+      "event": "DOE Radiant Kaleidos 3번째 마이크로원자로 임계 달성 목표 (미국 독립 250주년 당일, D-2)",
       "status": "예정"
     },
     {
-      "date": "2026-07-06",
-      "category": "항공/방산",
-      "event": "보잉 737 MAX 신규 조립라인 가동 (CEO 공식 발표)",
+      "date": "2026-07-05",
+      "category": "미디어/스포츠",
+      "event": "FIFA 월드컵 16강 한국 vs 멕시코",
       "status": "예정"
     },
     {
-      "date": "2026-07-07",
-      "category": "로봇/AI",
-      "event": "IEEE Humanoids 2026 개막 (~7/11, 산타클라라, 세계 최고 권위 휴머노이드 학술대회)",
+      "date": "2026-07-20",
+      "category": "로봇/기업",
+      "event": "현대차그룹 소프트뱅크 풋옵션 데드라인 + 이사회 승인 + 조지아 Atlas 배치 데이터 공개",
       "status": "예정"
     },
     {
-      "date": "2026-07-07",
-      "category": "AI/정책",
-      "event": "AI for Good Summit 개막 (~7/10, 제네바)",
+      "date": "2026-07-21",
+      "category": "로봇",
+      "event": "A3 산업 로봇팔 안전 표준 웨비나 (Automate 2026 후속 표준화)",
       "status": "예정"
     },
     {
-      "date": "2026-07-17",
-      "category": "에너지/조선",
-      "event": "이란 기뢰 제거 30일 시한 만료 (이슬라마바드 MOU 기준, 중앙 항로 재개 열쇠)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-07-29",
-      "category": "반도체",
-      "event": "SK하이닉스 Q2 2026 정식 실적 발표",
+      "date": "2026-07-23",
+      "category": "바이오",
+      "event": "FDA Sarclisa SC(Sanofi) PDUFA — 다발골수종 피하주사 미국 결정",
       "status": "예정"
     }
   ]
