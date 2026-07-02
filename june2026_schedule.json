@@ -1,39 +1,39 @@
 {
   "meta": {
-    "title": "2026년 7월 2일 브리핑 신규 일정",
+    "title": "2026년 7월 3일 브리핑 신규 일정",
     "source": "UNO_DEYA 글로벌 9대 산업 뉴스 브리핑",
-    "updated": "2026-07-02",
+    "updated": "2026-07-03",
     "note": "이전 모든 업데이트 기준 신규 항목만 수록"
   },
   "new_schedule": [
     {
       "date": "2026-07-04",
       "category": "에너지/원자력",
-      "event": "DOE Radiant Kaleidos 3번째 마이크로원자로 임계 달성 목표 (미국 독립 250주년 당일, D-2)",
+      "event": "Radiant Kaleidos D-1 → 내일 임계 달성 목표 (미국 독립 250주년 당일, DOE 장관·INL 소장 현장 확인)",
       "status": "예정"
     },
     {
-      "date": "2026-07-05",
-      "category": "미디어/스포츠",
-      "event": "FIFA 월드컵 16강 한국 vs 멕시코",
+      "date": "2026-07-06",
+      "category": "미디어/K팝",
+      "event": "BTS ARIRANG 런던 공연 Day 1 (토트넘 홋스퍼 스타디움, ~7/7) + 런던아이 ARIRANG 붉은 조명 점등",
+      "status": "예정"
+    },
+    {
+      "date": "2026-07-17",
+      "category": "미디어/K팝",
+      "event": "BTS ARIRANG 파리 공연 Day 1 (스타드 드 프랑스, ~7/18)",
       "status": "예정"
     },
     {
       "date": "2026-07-20",
       "category": "로봇/기업",
-      "event": "현대차그룹 소프트뱅크 풋옵션 데드라인 + 이사회 승인 + 조지아 Atlas 배치 데이터 공개",
+      "event": "현대차그룹 4개사 이사회 승인 — Boston Dynamics 100% 완전 인수 ($3억 2,500만) 공식화",
       "status": "예정"
     },
     {
-      "date": "2026-07-21",
-      "category": "로봇",
-      "event": "A3 산업 로봇팔 안전 표준 웨비나 (Automate 2026 후속 표준화)",
-      "status": "예정"
-    },
-    {
-      "date": "2026-07-23",
-      "category": "바이오",
-      "event": "FDA Sarclisa SC(Sanofi) PDUFA — 다발골수종 피하주사 미국 결정",
+      "date": "2026-07-17",
+      "category": "에너지/조선",
+      "event": "이란 MOU 기뢰 제거 30일 시한 D-14 (중앙 항로 재개 열쇠, 독일 불참 선언)",
       "status": "예정"
     }
   ]
