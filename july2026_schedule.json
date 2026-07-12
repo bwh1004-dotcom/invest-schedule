@@ -1,48 +1,646 @@
 {
-  "date": "2026-07-06",
-  "new_events": [
-    {"date": "2026-07-06", "event": "BTS ARIRANG 런던 토트넘 홋스퍼 스타디움 Day 1 개막", "sector": "엔터"},
-    {"date": "2026-07-06", "event": "i-dle 'Gimme Dat Love' 발매 (9th 미니 'We made')", "sector": "엔터"},
-    {"date": "2026-07-06", "event": "BABYMONSTER 'I LIKE IT' MV 공개", "sector": "엔터"},
-    {"date": "2026-07-06", "event": "ICML 2026 서울 코엑스 개막 (엑스포·튜토리얼)", "sector": "AI/기술"},
-    {"date": "2026-07-06", "event": "NATO 방위산업포럼 NSDIF26 앙카라 개최", "sector": "방산"},
-    {"date": "2026-07-06", "event": "B-21 레이더 엘스워스 기지 작전준비 단계 공식 진입", "sector": "방산"},
-    {"date": "2026-07-07", "event": "BTS ARIRANG 런던 토트넘 홋스퍼 스타디움 Day 2", "sector": "엔터"},
-    {"date": "2026-07-07", "event": "NATO 앙카라 서밋 개막 (GlobalEye 선정·5%GDP)", "sector": "방산"},
-    {"date": "2026-07-07", "event": "ICML 2026 메인 컨퍼런스 개막", "sector": "AI/기술"},
-    {"date": "2026-07-07", "event": "IEEE Humanoids 2026 산타클라라 개막", "sector": "로봇"},
-    {"date": "2026-07-07", "event": "삼성전자 Q2 잠정실적 발표 예정 (7/7~8 중)", "sector": "반도체"},
-    {"date": "2026-07-07", "event": "Lilly Q2 실적 발표 (Zepbound·Foundayo·retatrutide)", "sector": "바이오"},
-    {"date": "2026-07-07", "event": "KIHYUN(MONSTA X) EP 'BORDERLINE' 발매", "sector": "엔터"},
-    {"date": "2026-07-08", "event": "NATO 앙카라 서밋 2일차", "sector": "방산"},
-    {"date": "2026-07-08", "event": "BABYMONSTER CHOOM 고베 글리온 아레나 Day 1", "sector": "엔터"},
-    {"date": "2026-07-08", "event": "J&J Q2 실적 발표 (Darzalex SC)", "sector": "바이오"},
-    {"date": "2026-07-09", "event": "Merck Q2 실적 발표 (Keytruda)", "sector": "바이오"},
-    {"date": "2026-07-10", "event": "SK하이닉스 나스닥 ADR(SKHY) 거래 개시", "sector": "반도체"},
-    {"date": "2026-07-10", "event": "TSMC 6월 월간 매출 발표", "sector": "반도체"},
-    {"date": "2026-07-10", "event": "AstraZeneca Q2 실적 (Enhertu·Dato-DXd)", "sector": "바이오"},
-    {"date": "2026-07-10", "event": "YEONJUN(TXT) 2nd 미니 'NO LABELS: PART 02' 발매", "sector": "엔터"},
-    {"date": "2026-07-10", "event": "TWICE 'THIS IS FOR' 서울 KSPO 돔 공연", "sector": "엔터"},
-    {"date": "2026-07-11", "event": "미국 6월 CPI 발표", "sector": "거시경제"},
-    {"date": "2026-07-11", "event": "BTS ARIRANG 뮌헨 알리안츠 아레나 (7/11~12)", "sector": "엔터"},
-    {"date": "2026-07-17", "event": "gedatolisib FDA PDUFA 결정일 (유방암 PIK3CA)", "sector": "바이오"},
-    {"date": "2026-07-17", "event": "호르무즈 기뢰 제거 30일 시한 만료 D-11", "sector": "조선/에너지"},
-    {"date": "2026-07-17", "event": "BTS ARIRANG 파리 스타드 드 프랑스 (7/17~18)", "sector": "엔터"},
-    {"date": "2026-07-19", "event": "FIFA 결승 하프타임쇼 (BTS·마돈나·샤키라·콜드플레이) D-13", "sector": "엔터"},
-    {"date": "2026-07-20", "event": "현대차 이사회 (Boston Dynamics 완전 인수 공식화) D-14", "sector": "로봇"},
-    {"date": "2026-07-20", "event": "판버러 에어쇼 2026 개막 (7/20~24) D-14", "sector": "방산"},
-    {"date": "2026-07-21", "event": "fromis_9 1st 정규앨범 발매 (정정: 7/6→7/21)", "sector": "엔터"},
-    {"date": "2026-07-23", "event": "Sarclisa SC FDA PDUFA 결정일 (다발골수종)", "sector": "바이오"},
-    {"date": "2026-07-24", "event": "ATEEZ 1st 일본 미니 'KISS N TELL' 발매", "sector": "엔터"},
-    {"date": "2026-07-25", "event": "NATO 헤이그 정상회의 (7/25~28)", "sector": "방산"},
-    {"date": "2026-07-25", "event": "Stray Kids KSPO 돔 서울 투어 개막 (7/25~8/2 5회)", "sector": "엔터"},
-    {"date": "2026-07-29", "event": "SK하이닉스 Q2 정식 실적 발표", "sector": "반도체"},
-    {"date": "2026-08-05", "event": "Moderna mFlusiva FDA 결정일 (mRNA 독감 백신)", "sector": "바이오"},
-    {"date": "2026-08-07", "event": "Stray Kids 'THIS & THAT' 정규앨범 발매", "sector": "엔터"},
-    {"date": "2026-08-16", "event": "호르무즈 60일 MOU 만료", "sector": "조선/에너지"},
-    {"date": "2026-09-01", "event": "CATL 나트륨이온 ESS 첫 납품 예정", "sector": "배터리"},
-    {"date": "2026-10-01", "event": "SK온 조지아 LFP 양산 개시", "sector": "배터리"},
-    {"date": "2026-11-09", "event": "EU 블랙매스 수출 금지 의무화", "sector": "배터리"},
-    {"date": "2026-12-31", "event": "美 AMPC 최종 가이던스 발표", "sector": "배터리"}
-  ]
+  "meta": {
+    "title": "UNO_DEYA 글로벌 9대 산업 브리핑 일정",
+    "updated": "2026-07-13",
+    "briefing_dates_completed": [
+      "2026-06-02",
+      "2026-06-03",
+      "2026-06-04",
+      "2026-06-05",
+      "2026-06-06",
+      "2026-06-07",
+      "2026-06-08",
+      "2026-06-09",
+      "2026-06-10",
+      "2026-07-05",
+      "2026-07-06",
+      "2026-07-07",
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-11",
+      "2026-07-13"
+    ]
+  },
+  "schedule": [
+    {
+      "date": "2026-07-11",
+      "day": "토",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "BTS ARIRANG 뮌헨 알리안츠 아레나 Day 1 오후8시(현지)",
+          "importance": "★★★",
+          "note": "70,000명 / 4방향 캣워크 / FIFA 결승 D-8"
+        },
+        {
+          "sector": "미디어",
+          "event": "TWICE 서울 파이널 KSPO 돔 Day 2",
+          "importance": "★★★",
+          "note": ""
+        },
+        {
+          "sector": "에너지",
+          "event": "미·이란 2차 휴전 합의 확인 / 7/14 카타르 협상 재개 예정",
+          "importance": "★★★",
+          "note": "브렌트 $79 주간마감 / 전면전 아님"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-12",
+      "day": "일",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "BTS ARIRANG 뮌헨 Day 2 완결",
+          "importance": "★★★",
+          "note": ""
+        },
+        {
+          "sector": "미디어",
+          "event": "TWICE 서울 파이널 Day 3 완결 — 81쇼 대단원",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-13",
+      "day": "월",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "SKHY 정규 거래 첫날 (SKHYV→SKHY 전환)",
+          "importance": "★★★",
+          "note": "공모가 $149 / 시초가 $170 +14% 흥행 / 12월 나스닥100 편입 기대"
+        },
+        {
+          "sector": "반도체",
+          "event": "TSMC 6월 월간 매출 발표 (태풍으로 7/10→7/13 연기)",
+          "importance": "★★★",
+          "note": "연간 30% 성장 가이던스 재확인 여부"
+        },
+        {
+          "sector": "반도체",
+          "event": "GraniteShares SKUU(2배 레버리지)·SKDD(2배 인버스) ETF 출시",
+          "importance": "★★",
+          "note": "단기 트레이딩 도구 / 장기 보유 복리 감소 주의"
+        },
+        {
+          "sector": "에너지",
+          "event": "미·이란 협상 동향 모니터링 (7/14 카타르 회담 D-1)",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-14",
+      "day": "화",
+      "events": [
+        {
+          "sector": "에너지",
+          "event": "미·이란 카타르 도하 협상 재개",
+          "importance": "★★★",
+          "note": "호르무즈 통행료 이슈 핵심 쟁점 / 타결 시 유가 $70 하향 / 결렬 시 $85+"
+        },
+        {
+          "sector": "방산",
+          "event": "프랑스 바스티유 데이 군사 퍼레이드 — FPV 드론 부대 역사상 첫 공개",
+          "importance": "★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-15",
+      "day": "수",
+      "events": [
+        {
+          "sector": "바이오",
+          "event": "BIO Asia-Taiwan 2026 타이베이 (7/15~19)",
+          "importance": "★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "day": "목",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "TSMC Q2 2026 실적 발표",
+          "importance": "★★★",
+          "note": "가이던스 $39~40.2억 / EPS 컨센서스 +52.63% / 총마진 65.5~67.5%"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-17",
+      "day": "금",
+      "events": [
+        {
+          "sector": "조선",
+          "event": "호르무즈 기뢰 제거 30일 시한 D-DAY",
+          "importance": "★★★",
+          "note": "D-6 기준 / 이란 이행 가능성 불투명 / K조선 LNG 발주 스타트건"
+        },
+        {
+          "sector": "바이오",
+          "event": "FDA gedatolisib(Celcuity 유방암) PDUFA D-DAY",
+          "importance": "★★★",
+          "note": "D-6 기준 / PIK3CA 경로 최초 승인 여부"
+        },
+        {
+          "sector": "미디어",
+          "event": "BTS ARIRANG 파리 스타드 드 프랑스 Day 1",
+          "importance": "★★★",
+          "note": ""
+        },
+        {
+          "sector": "미디어",
+          "event": "BABYMONSTER CHOOM 후쿠오카 마리나 멧세 (7/17~18)",
+          "importance": "★★★",
+          "note": ""
+        },
+        {
+          "sector": "미디어",
+          "event": "ATEEZ 팬미팅 서울 (7/17~19)",
+          "importance": "★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-18",
+      "day": "토",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "BTS ARIRANG 파리 Day 2",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-19",
+      "day": "일",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "FIFA 결승 하프타임쇼 BTS·마돈나·샤키라·콜드플레이",
+          "importance": "★★★",
+          "note": "D-8 기준 / 뉴저지 메트라이프 스타디움"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-20",
+      "day": "월",
+      "events": [
+        {
+          "sector": "로봇",
+          "event": "현대차 Boston Dynamics 완전 인수 이사회 승인",
+          "importance": "★★★",
+          "note": "D-9 기준 / NASDAQ IPO 2028 공식화"
+        },
+        {
+          "sector": "방산",
+          "event": "판버러 에어쇼 2026 개막 (7/20~24)",
+          "importance": "★★★",
+          "note": "D-9 / K방산 반전 수주전"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-21",
+      "day": "화",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "fromis_9 1st 정규앨범 발매",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "day": "목",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "삼성전자 Q2 정식 실적 발표 (부문별 상세)",
+          "importance": "★★★",
+          "note": ""
+        },
+        {
+          "sector": "바이오",
+          "event": "FDA Sarclisa SC(Sanofi 다발골수종) PDUFA",
+          "importance": "★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "day": "금",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "ATEEZ 1st 일본 미니 'KISS N TELL'",
+          "importance": "★★",
+          "note": ""
+        },
+        {
+          "sector": "로봇",
+          "event": "IEEE Humanoids 2026 논문 제출 마감",
+          "importance": "★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-25",
+      "day": "토",
+      "events": [
+        {
+          "sector": "방산",
+          "event": "NATO 헤이그 정상회의 (7/25~28)",
+          "importance": "★★★",
+          "note": ""
+        },
+        {
+          "sector": "미디어",
+          "event": "Stray Kids KSPO 돔 서울 5회 시작 (7/25~8/2)",
+          "importance": "★★★",
+          "note": ""
+        },
+        {
+          "sector": "미디어",
+          "event": "BABYMONSTER CHOOM 요코하마 K-아레나 (7/25~26)",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-27",
+      "day": "월",
+      "events": [
+        {
+          "sector": "전기차",
+          "event": "LFP 배터리 테크 2026 (7/27~28)",
+          "importance": "★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-29",
+      "day": "수",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "SK하이닉스 Q2 정식 실적 발표",
+          "importance": "★★★",
+          "note": "Q2 매출 $536.9억 컨센서스 / HBM4 공급 현황"
+        },
+        {
+          "sector": "빅테크",
+          "event": "FOMC 7월 회의 (7/29~30)",
+          "importance": "★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-30",
+      "day": "목",
+      "events": [
+        {
+          "sector": "에너지",
+          "event": "Aalo Atomics 임계 달성 기념 행사 아이다호 폴스",
+          "importance": "★★",
+          "note": ""
+        },
+        {
+          "sector": "방산",
+          "event": "2026 공군·우주 서밋",
+          "importance": "★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-08-01",
+      "day": "토",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "BTS ARIRANG 뉴저지 메트라이프 스타디움 (8/1~2)",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-08-02",
+      "day": "일",
+      "events": [
+        {
+          "sector": "빅테크",
+          "event": "EU AI Act 고위험 AI 전면 시행",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-08-05",
+      "day": "수",
+      "events": [
+        {
+          "sector": "바이오",
+          "event": "FDA mFlusiva(Moderna mRNA 독감 백신) PDUFA",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "day": "금",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "Stray Kids 'THIS & THAT' 정규앨범 발매",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "day": "수",
+      "events": [
+        {
+          "sector": "로봇",
+          "event": "세계로봇대회 WRC 베이징 (8/19~23)",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-08-31",
+      "day": "월",
+      "events": [
+        {
+          "sector": "빅테크",
+          "event": "Claude Sonnet 5 introductory 가격 종료 ($2→$3/M)",
+          "importance": "★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-09-01",
+      "day": "화",
+      "events": [
+        {
+          "sector": "빅테크",
+          "event": "OpenAI IPO 목표",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "day": "화",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "BABYMONSTER CHOOM 오사카 교세라돔 (9/22~23)",
+          "importance": "★★★",
+          "note": "그룹 첫 단독 돔 공연"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "day": "목",
+      "events": [
+        {
+          "sector": "빅테크",
+          "event": "Anthropic IPO 목표",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-10-10",
+      "day": "토",
+      "events": [
+        {
+          "sector": "바이오",
+          "event": "FDA I-DXd(Daiichi SCLC) PDUFA",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-10-26",
+      "day": "월",
+      "events": [
+        {
+          "sector": "바이오",
+          "event": "FDA bepirovirsen(GSK·Ionis B형간염) PDUFA",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "day": "월",
+      "events": [
+        {
+          "sector": "전기차",
+          "event": "EU 블랙매스 수출 금지 의무화",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-12-06",
+      "day": "일",
+      "events": [
+        {
+          "sector": "로봇",
+          "event": "IEEE Humanoids 2026 산타클라라 (12/6~9)",
+          "importance": "★★★",
+          "note": "AI경진공모 결과발표도 12월"
+        }
+      ]
+    },
+    {
+      "date": "2026-12-31",
+      "day": "목",
+      "events": [
+        {
+          "sector": "전기차",
+          "event": "미국 AMPC 최종 가이던스 발표",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2027-02-18",
+      "day": "목",
+      "events": [
+        {
+          "sector": "전기차",
+          "event": "EU 배터리 여권 의무화",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-13",
+      "day": "월",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "SKHY 정규 거래 첫날 (SKHYV→SKHY 전환)",
+          "importance": "★★★",
+          "note": "공모가 49 / 첫날 +13% / 코리아 디스카운트 해소 시작"
+        },
+        {
+          "sector": "반도체",
+          "event": "TSMC 6월 월간 매출 발표 (한국시간 12:30)",
+          "importance": "★★★",
+          "note": "NT,400억 역대 최고 기대 / 7/16 Q2 실적 전 마지막 데이터"
+        },
+        {
+          "sector": "반도체",
+          "event": "GraniteShares SKUU·SKDD ETF 출시",
+          "importance": "★★",
+          "note": "단기 트레이딩 도구 / 복리 감소 주의"
+        },
+        {
+          "sector": "바이오",
+          "event": "AAIC 2026 런던 알츠하이머 학회 개막",
+          "importance": "★★",
+          "note": "Vaccinex Pepinemab 바이오마커 데이터 발표"
+        },
+        {
+          "sector": "미디어",
+          "event": "TWICE 인천 공연 DVD 발매",
+          "importance": "★★",
+          "note": "81쇼 투어 완결 후속 콘텐츠"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "day": "목",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "TSMC Q2 2026 실적 발표",
+          "importance": "★★★",
+          "note": "가이던스 9~40.2억 / EPS 컨센서스 +52.63% / AI 빌드아웃 가속 여부 판가름"
+        }
+      ]
+    }
+  ],
+  "cumulative_issues_2026": {
+    "big_tech": [
+      "GPT-5.6 Sol·Terra·Luna 정부 조율 후 7/10 전면 출시",
+      "ChatGPT Work vs Claude Cowork 모바일 동시 출시(7/9~10) — AI 슈퍼앱 전쟁 원년",
+      "Grok 4.5 독립 벤치마크 4위(마케팅 1위 주장)",
+      "Anthropic $19억 장기 데이터센터 계약",
+      "Tesla Robotaxi 마이애미 완전 무감독 5번째 도시",
+      "Claude Sonnet 5 가격 8/31 종료",
+      "ChatGPT Work vs Claude Cowork 동시 출시(7/9~10) 확정 / Meta Muse Spark 1.1 코딩 .25 진입",
+      "Uber 연간 AI 예산 4월 소진 / Palo Alto CEO 토큰 90% 인하 요구 — 토큰 반란 메인스트림화",
+      "Apple OpenAI 영업비밀 소송 제기"
+    ],
+    "semiconductor": [
+      "SKHY 공모가 $149 시초가 $170 +14% 흥행(7/10) / 조달 $265억 역대 최대 해외기업 ADR / 최태원 오프닝벨",
+      "TSMC 6월 매출 태풍으로 7/13 연기 / Q2 실적 7/16",
+      "Meta AI 칩 9월 생산 삼성 $65억 수주 가능성",
+      "삼성 Q2 영업이익 89.4조 +1,810% / 주가 -6.9%"
+    ],
+    "energy": [
+      "미·이란 2차 휴전 합의(7/11 주말) / 7/14 카타르 협상 재개",
+      "이란 페르시아만 해협청 설립 시사 / 통행료 부과 위협",
+      "브렌트 $79 주간 마감 / 전면전 아님 제한적 군사 압박",
+      "호르무즈 기뢰제거 D-6(7/17)"
+    ],
+    "bio": [
+      "AZ×Ionis eplontersen TTR 심근증 Phase 3 실패 — Alnylam·BridgeBio 수혜",
+      "BMS Krazati+cetuximab 대장암 화학요법 열세",
+      "GLP-1 메디케어 확대 vs 민간 고용주 축소 이중 구도",
+      "Xaira 11억달러 AI신약 파이프라인 첫 공개",
+      "FDA gedatolisib D-6(7/17)",
+      "Roche×Ionis 헌팅턴 두 약물 전면 중단(7/13) / Ionis-Roche 파트너십 완전 해체",
+      "경구 GLP-1 트래커 첫 공개 — Foundayo vs 경구 Wegovy 주간 실시간 비교",
+      "삼성바이오에피스 Teva Opuviz 캐나다 상업화 MOU"
+    ],
+    "ev_battery": [
+      "BYD $22,000 반고체 배터리 EV 출시(업계 최초 대중가격) / 610km",
+      "웨이모 라스베이거스 완전 무인 로보택시 / 2026년말 주당 100만건 목표",
+      "CTG 고비사막 1GW 태양광+CSP 상업화 / 리튬 없는 야간발전",
+      "美 청정에너지 손실 47만 일자리·$680억 / AMPC·No China Zone 유지",
+      "나트륨이온 LFP 가격 패리티 — 창안 양산 탑재 / kWh당 /bin/sh.001~0.009 차이",
+      "GM 나트륨이온 미국 생산 추진 + V2G 빅 에너지 푸시",
+      "EV 배터리 5년 후 95% 항속 유지 소비자 신뢰 데이터"
+    ],
+    "defense": [
+      "앙카라 숨은 계약 추가 공개: ATACMS 독일 공동생산·토마호크 독일 구매·NASAMS 벨기에 10개 포대",
+      "한화에어로스페이스 앙카라 유럽 확장 전략 공식 발표",
+      "록히드마틴 JLWS 500kW 레이저 선정",
+      "판버러 D-9(7/20)",
+      "판버러 D-7(7/20) / 보잉 F-47·MQ-28·F-15EX·MQ-25A 동시 출격",
+      "폴란드·안두릴 PGZ 드론 합작 MOU",
+      "중국 태평양 SLBM 시험 / 호주·일본·뉴질랜드 사전 통보"
+    ],
+    "shipbuilding": [
+      "한화 필리 마톤 알로하 클래스 2번 선박 건조 진전",
+      "MARAD 청장 의회서 K-조선 설계 관리 공식 참고 언급",
+      "미 해군 FF(X) HII $2.83억 리드야드 계약 / K-조선 분산 건조 참여 가능성",
+      "TotalEnergies 멕시코 ECA LNG 첫 아시아행 출항 / 긴 항로=LNG선 추가 수요",
+      "기뢰제거 D-6(7/17) / 이란 이행 불투명",
+      "ADNOC L&S LNG 4척 K-조선 직발주(7/10)",
+      "미 해사청 MARAD 청장 K-조선 설계 관리 공식 참고 선언",
+      "삼성중공업 델핀 FLNG 항소 기각 법적 리스크 완전 해소",
+      "기뢰제거 D-4(7/17) / 이란 7/12 미군 3차 공습 140개 목표"
+    ],
+    "robot": [
+      "EgoScale 논문 로봇에도 스케일링 법칙 작동 확인(2026년 상반기 최대 발견)",
+      "pi-0.7 처음 보는 기기 스스로 작동",
+      "2026 상반기 글로벌 로봇 투자 558억달러 역대 최고·전년 2배",
+      "Tesla Optimus Gen3 7월말 프리몬트 소량 생산 목표",
+      "현대차 D-9(7/20) / Boston Dynamics NASDAQ 2028",
+      "Unitree IPO 최종 등록 6180억원 .9B 기업가치(STAR Market)",
+      "AgiBot 15000대 출하(6/28) / 3개월 5000대 월 1667대 속도",
+      "1X NEO 인간수준 손 + 헤이워드 공장 가동"
+    ],
+    "media": [
+      "BTS 뮌헨 D-DAY(7/11~12) → 파리(7/17~18) → FIFA 결승 D-8(7/19)",
+      "TWICE 서울 파이널 81쇼 대단원(7/12 완결) / 북미 55만명·도쿄 국립경기장 최초",
+      "BTS ARIRANG 79쇼·34도시·4대륙 K팝 역대 최대 월드투어 공식 확인"
+    ]
+  }
 }
