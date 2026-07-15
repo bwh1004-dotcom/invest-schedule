@@ -1,0 +1,12 @@
+{
+  "date": "2026-07-15",
+  "source": "아이투자 (itooza.com)",
+  "high_52w": [
+    {"name": "모나미",        "price": 3445,  "change_pct": 30.0, "high_52w": 3445,  "stability": 1},
+    {"name": "한성기업",      "price": 13300, "change_pct": 19.1, "high_52w": 14210, "stability": 2},
+    {"name": "엑사이엔씨",    "price": 943,   "change_pct": 10.3, "high_52w": 980,   "stability": 2},
+    {"name": "인피니트헬스케어","price": 9285, "change_pct": 4.1,  "high_52w": 9390,  "stability": 5},
+    {"name": "솔본",          "price": 4420,  "change_pct": 2.3,  "high_52w": 4520,  "stability": 5},
+    {"name": "슈프리마에이치큐","price": 12700,"change_pct": 1.9,  "high_52w": 13500, "stability": 5}
+  ]
+}
