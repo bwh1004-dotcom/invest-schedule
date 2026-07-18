@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "UNO_DEYA 글로벌 9대 산업 브리핑 일정",
-    "updated": "2026-07-16",
+    "updated": "2026-07-19",
     "briefing_dates_completed": [
       "2026-06-02",
       "2026-06-03",
@@ -22,7 +22,10 @@
       "2026-07-13",
       "2026-07-14",
       "2026-07-15",
-      "2026-07-16"
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-18",
+      "2026-07-19"
     ]
   },
   "schedule": [
@@ -99,6 +102,42 @@
       ]
     },
     {
+      "date": "2026-07-13",
+      "day": "월",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "SKHY 정규 거래 첫날 (SKHYV→SKHY 전환)",
+          "importance": "★★★",
+          "note": "공모가 49 / 첫날 +13% / 코리아 디스카운트 해소 시작"
+        },
+        {
+          "sector": "반도체",
+          "event": "TSMC 6월 월간 매출 발표 (한국시간 12:30)",
+          "importance": "★★★",
+          "note": "NT,400억 역대 최고 기대 / 7/16 Q2 실적 전 마지막 데이터"
+        },
+        {
+          "sector": "반도체",
+          "event": "GraniteShares SKUU·SKDD ETF 출시",
+          "importance": "★★",
+          "note": "단기 트레이딩 도구 / 복리 감소 주의"
+        },
+        {
+          "sector": "바이오",
+          "event": "AAIC 2026 런던 알츠하이머 학회 개막",
+          "importance": "★★",
+          "note": "Vaccinex Pepinemab 바이오마커 데이터 발표"
+        },
+        {
+          "sector": "미디어",
+          "event": "TWICE 인천 공연 DVD 발매",
+          "importance": "★★",
+          "note": "81쇼 투어 완결 후속 콘텐츠"
+        }
+      ]
+    },
+    {
       "date": "2026-07-14",
       "day": "화",
       "events": [
@@ -117,6 +156,30 @@
       ]
     },
     {
+      "date": "2026-07-14",
+      "day": "화",
+      "events": [
+        {
+          "sector": "방산",
+          "event": "프랑스 바스티유 데이 퍼레이드 — FPV 드론 부대 역사적 첫 등장",
+          "importance": "★★★",
+          "note": "유럽의 전략적 각성 테마 / 에어버스·MBDA 예비군 민간 기업 첫 참가 / 우크라이나 부대 첫 행진"
+        },
+        {
+          "sector": "에너지",
+          "event": "카타르 도하 협상 결과 — 긍정적 진전 발표",
+          "importance": "★★★",
+          "note": "핵심 쟁점 미해결 / 하메네이 국장 후 재개 예정 / MOU 000억 재건기금 NPR 공개"
+        },
+        {
+          "sector": "미디어",
+          "event": "저스틴 비버 FIFA 결승 하프타임쇼 4번째 헤드라이너 공식 확정",
+          "importance": "★★★",
+          "note": "BTS·마돈나·샤키라·저스틴 비버 4인 체제 완성 / j-hope 신곡 암시"
+        }
+      ]
+    },
+    {
       "date": "2026-07-15",
       "day": "수",
       "events": [
@@ -129,6 +192,42 @@
       ]
     },
     {
+      "date": "2026-07-15",
+      "day": "수",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "TSMC Q2 실적 D-1 / IEEE Humanoids 논문 기간 시작",
+          "importance": "★★★",
+          "note": "NT427억 역대 최고 / 연간 가이던스 35~40% 상향 기대"
+        },
+        {
+          "sector": "에너지",
+          "event": "브렌트 장중 7.39 돌파 / 호르무즈 기뢰 D-2",
+          "importance": "★★★",
+          "note": "7/13 9.6% → 7/14 3.8% → 7/15 추가 상승 / 관측 통항 사실상 0"
+        },
+        {
+          "sector": "방산",
+          "event": "록히드마틴 PAC-3 MSE 4배 증산 7년 50억 계약",
+          "importance": "★★★",
+          "note": "RTX AIM-9X Block II 1억 추가 / 판버러 D-5"
+        },
+        {
+          "sector": "바이오",
+          "event": "gedatolisib FDA PDUFA D-2",
+          "importance": "★★★",
+          "note": "PIK3CA 비변이 유방암 최초 승인 여부"
+        },
+        {
+          "sector": "미디어",
+          "event": "선미 Forever July + NCT WISH YO-I-DON! 발매",
+          "importance": "★★",
+          "note": "BTS 파리 D-2 / FIFA 결승 D-4"
+        }
+      ]
+    },
+    {
       "date": "2026-07-16",
       "day": "목",
       "events": [
@@ -137,6 +236,54 @@
           "event": "TSMC Q2 2026 실적 발표",
           "importance": "★★★",
           "note": "가이던스 $39~40.2억 / EPS 컨센서스 +52.63% / 총마진 65.5~67.5%"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "day": "목",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "TSMC Q2 2026 실적 발표",
+          "importance": "★★★",
+          "note": "가이던스 9~40.2억 / EPS 컨센서스 +52.63% / AI 빌드아웃 가속 여부 판가름"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "day": "목",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "TSMC Q2 2026 실적 발표 — NT조2703억 역대 최고",
+          "importance": "★★★",
+          "note": "+36% YoY / CAPEX 80~600억 상향 전망 / NVIDIA 패키징 60% 독점"
+        },
+        {
+          "sector": "바이오",
+          "event": "gedatolisib FDA 조기 승인 (PDUFA 7/17 하루 전)",
+          "importance": "★★★",
+          "note": "PIK3CA 비변이 HR+/HER2- 유방암 최초 / PFS 9.3개월 vs 2.0개월 76% 감소"
+        },
+        {
+          "sector": "빅테크",
+          "event": "Gemini 3.5 Pro GA 출시 확정",
+          "importance": "★★★",
+          "note": "3번 연기 끝 / 2M 컨텍스트 · Deep Think · 50 Ultra"
+        },
+        {
+          "sector": "에너지",
+          "event": "트럼프 이란 발전소 48시간 최후통첩 발송",
+          "importance": "★★★",
+          "note": "브렌트 9.50 장중 / D-1 이행 불가 확정"
+        },
+        {
+          "sector": "미디어",
+          "event": "j-hope LIFE ON THE ROAD FIFA 공식 사운드트랙 발매",
+          "importance": "★★★",
+          "note": "BTS 파리 D-1 / FIFA 결승 D-3 / 저스틴 비버 4번째 헤드라이너 확정"
         }
       ]
     },
@@ -177,6 +324,48 @@
       ]
     },
     {
+      "date": "2026-07-17",
+      "day": "금",
+      "events": [
+        {
+          "sector": "조선",
+          "event": "호르무즈 기뢰 30일 시한 D-DAY — 이행 불가 확정",
+          "importance": "★★★",
+          "note": "트럼프 제거중 주장 vs 미 국방부 시작도 못했다 간극 / K조선 LNG 스타트건"
+        },
+        {
+          "sector": "미디어",
+          "event": "BTS ARIRANG 파리 스타드 드 프랑스 Day 1",
+          "importance": "★★★",
+          "note": "8만명 / 에펠탑 야경 / FIFA 결승 D-2"
+        },
+        {
+          "sector": "반도체",
+          "event": "TSMC Q2 컨퍼런스콜 후속 — 2nm 수율 사상 최고 CAPEX 00억 확정",
+          "importance": "★★★",
+          "note": "NVIDIA 패키징 60% 독점 / CoWoS 2028 3배 / 주가 +3.2%"
+        },
+        {
+          "sector": "바이오",
+          "event": "gedatolisib 승인 후속 시장 반응 + 삼성바이오 ADC 수주 공식화",
+          "importance": "★★★",
+          "note": "AAIC 2026 도나네맙·레카네맙 실세계 데이터 공개"
+        },
+        {
+          "sector": "에너지",
+          "event": "브렌트 8 / 기뢰 제거 실제 미시작 확인",
+          "importance": "★★★",
+          "note": "NACHO 전략 시장 주류화 / 골드만삭스 2027년말 45% 우회 가능 추산"
+        },
+        {
+          "sector": "방산",
+          "event": "판버러 D-3 / KF-21 트럼프 훌륭한 전투기 화답",
+          "importance": "★★★",
+          "note": "NATO 헤이그 D-8(7/25) / 브렌트 고유가 방산 예산 증액 명분"
+        }
+      ]
+    },
+    {
       "date": "2026-07-18",
       "day": "토",
       "events": [
@@ -185,6 +374,30 @@
           "event": "BTS ARIRANG 파리 Day 2",
           "importance": "★★★",
           "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-18",
+      "day": "토",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "BTS ARIRANG 파리 스타드 드 프랑스 Day 2 완결",
+          "importance": "★★★",
+          "note": "8만명×2일 / FIFA 결승 하프타임쇼 내일 D-1 / 한국시간 7/20 새벽 4:55"
+        },
+        {
+          "sector": "미디어",
+          "event": "BABYMONSTER CHOOM 후쿠오카 Day 2 완결",
+          "importance": "★★",
+          "note": ""
+        },
+        {
+          "sector": "에너지",
+          "event": "브렌트 8 이번 주 고착 / 기뢰 제거 6개월 현실 확인",
+          "importance": "★★★",
+          "note": "미 국방부 6개월 / 이탈리아 군 2개월+ / 이란 독점권 주장 / NACHO 전략 주류화"
         }
       ]
     },
@@ -227,6 +440,18 @@
           "event": "fromis_9 1st 정규앨범 발매",
           "importance": "★★★",
           "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-07-22",
+      "day": "수",
+      "events": [
+        {
+          "sector": "반도체",
+          "event": "SK하이닉스 Q2 정식 실적 발표 (확정)",
+          "importance": "★★★",
+          "note": "매출 83.6조+ 컨센서스 / HBM·일반D램·낸드·CAPEX 4대 관전 / EPS +49.71% 서프라이즈 기대"
         }
       ]
     },
@@ -310,7 +535,7 @@
           "sector": "반도체",
           "event": "SK하이닉스 Q2 정식 실적 발표",
           "importance": "★★★",
-          "note": "Q2 매출 $536.9억 컨센서스 / HBM4 공급 현황"
+          "note": "매출 83.6조+ 컨센서스 / HBM4 공급 현황 / 7/29는 오류 수정"
         },
         {
           "sector": "빅테크",
@@ -387,12 +612,36 @@
       ]
     },
     {
+      "date": "2026-08-14",
+      "day": "금",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "Wanna One KCON LA — 2019년 이후 첫 공연",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
       "date": "2026-08-19",
       "day": "수",
       "events": [
         {
           "sector": "로봇",
           "event": "세계로봇대회 WRC 베이징 (8/19~23)",
+          "importance": "★★★",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "date": "2026-08-21",
+      "day": "금",
+      "events": [
+        {
+          "sector": "미디어",
+          "event": "ENHYPEN 'Bloody Paradise' 재데뷔 (8/21~22)",
           "importance": "★★★",
           "note": ""
         }
@@ -517,150 +766,6 @@
           "note": ""
         }
       ]
-    },
-    {
-      "date": "2026-07-13",
-      "day": "월",
-      "events": [
-        {
-          "sector": "반도체",
-          "event": "SKHY 정규 거래 첫날 (SKHYV→SKHY 전환)",
-          "importance": "★★★",
-          "note": "공모가 49 / 첫날 +13% / 코리아 디스카운트 해소 시작"
-        },
-        {
-          "sector": "반도체",
-          "event": "TSMC 6월 월간 매출 발표 (한국시간 12:30)",
-          "importance": "★★★",
-          "note": "NT,400억 역대 최고 기대 / 7/16 Q2 실적 전 마지막 데이터"
-        },
-        {
-          "sector": "반도체",
-          "event": "GraniteShares SKUU·SKDD ETF 출시",
-          "importance": "★★",
-          "note": "단기 트레이딩 도구 / 복리 감소 주의"
-        },
-        {
-          "sector": "바이오",
-          "event": "AAIC 2026 런던 알츠하이머 학회 개막",
-          "importance": "★★",
-          "note": "Vaccinex Pepinemab 바이오마커 데이터 발표"
-        },
-        {
-          "sector": "미디어",
-          "event": "TWICE 인천 공연 DVD 발매",
-          "importance": "★★",
-          "note": "81쇼 투어 완결 후속 콘텐츠"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-16",
-      "day": "목",
-      "events": [
-        {
-          "sector": "반도체",
-          "event": "TSMC Q2 2026 실적 발표",
-          "importance": "★★★",
-          "note": "가이던스 9~40.2억 / EPS 컨센서스 +52.63% / AI 빌드아웃 가속 여부 판가름"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-14",
-      "day": "화",
-      "events": [
-        {
-          "sector": "방산",
-          "event": "프랑스 바스티유 데이 퍼레이드 — FPV 드론 부대 역사적 첫 등장",
-          "importance": "★★★",
-          "note": "유럽의 전략적 각성 테마 / 에어버스·MBDA 예비군 민간 기업 첫 참가 / 우크라이나 부대 첫 행진"
-        },
-        {
-          "sector": "에너지",
-          "event": "카타르 도하 협상 결과 — 긍정적 진전 발표",
-          "importance": "★★★",
-          "note": "핵심 쟁점 미해결 / 하메네이 국장 후 재개 예정 / MOU 000억 재건기금 NPR 공개"
-        },
-        {
-          "sector": "미디어",
-          "event": "저스틴 비버 FIFA 결승 하프타임쇼 4번째 헤드라이너 공식 확정",
-          "importance": "★★★",
-          "note": "BTS·마돈나·샤키라·저스틴 비버 4인 체제 완성 / j-hope 신곡 암시"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-15",
-      "day": "수",
-      "events": [
-        {
-          "sector": "반도체",
-          "event": "TSMC Q2 실적 D-1 / IEEE Humanoids 논문 기간 시작",
-          "importance": "★★★",
-          "note": "NT427억 역대 최고 / 연간 가이던스 35~40% 상향 기대"
-        },
-        {
-          "sector": "에너지",
-          "event": "브렌트 장중 7.39 돌파 / 호르무즈 기뢰 D-2",
-          "importance": "★★★",
-          "note": "7/13 9.6% → 7/14 3.8% → 7/15 추가 상승 / 관측 통항 사실상 0"
-        },
-        {
-          "sector": "방산",
-          "event": "록히드마틴 PAC-3 MSE 4배 증산 7년 50억 계약",
-          "importance": "★★★",
-          "note": "RTX AIM-9X Block II 1억 추가 / 판버러 D-5"
-        },
-        {
-          "sector": "바이오",
-          "event": "gedatolisib FDA PDUFA D-2",
-          "importance": "★★★",
-          "note": "PIK3CA 비변이 유방암 최초 승인 여부"
-        },
-        {
-          "sector": "미디어",
-          "event": "선미 Forever July + NCT WISH YO-I-DON! 발매",
-          "importance": "★★",
-          "note": "BTS 파리 D-2 / FIFA 결승 D-4"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-16",
-      "day": "목",
-      "events": [
-        {
-          "sector": "반도체",
-          "event": "TSMC Q2 2026 실적 발표 — NT조2703억 역대 최고",
-          "importance": "★★★",
-          "note": "+36% YoY / CAPEX 80~600억 상향 전망 / NVIDIA 패키징 60% 독점"
-        },
-        {
-          "sector": "바이오",
-          "event": "gedatolisib FDA 조기 승인 (PDUFA 7/17 하루 전)",
-          "importance": "★★★",
-          "note": "PIK3CA 비변이 HR+/HER2- 유방암 최초 / PFS 9.3개월 vs 2.0개월 76% 감소"
-        },
-        {
-          "sector": "빅테크",
-          "event": "Gemini 3.5 Pro GA 출시 확정",
-          "importance": "★★★",
-          "note": "3번 연기 끝 / 2M 컨텍스트 · Deep Think · 50 Ultra"
-        },
-        {
-          "sector": "에너지",
-          "event": "트럼프 이란 발전소 48시간 최후통첩 발송",
-          "importance": "★★★",
-          "note": "브렌트 9.50 장중 / D-1 이행 불가 확정"
-        },
-        {
-          "sector": "미디어",
-          "event": "j-hope LIFE ON THE ROAD FIFA 공식 사운드트랙 발매",
-          "importance": "★★★",
-          "note": "BTS 파리 D-1 / FIFA 결승 D-3 / 저스틴 비버 4번째 헤드라이너 확정"
-        }
-      ]
     }
   ],
   "cumulative_issues_2026": {
@@ -680,7 +785,12 @@
       "Qualcomm Modular 9.2억 인수 / Nvidia CUDA 대항 생태계",
       "JPMorgan AI CapEx 2030년 .5조 상향 / 빅4 하이퍼스케일러 2027년 조+ / MS 900억",
       "ByteDance Doubao 일일 1200억 토큰 / 중국 AI OpenRouter 45% / Qwen 파생 10만개+",
-      "Gemini 3.5 Pro 전면 재구축 D-2(7/17) — 오늘 Vertex AI 기업 프리뷰 긍정 테스트"
+      "Gemini 3.5 Pro 전면 재구축 D-2(7/17) — 오늘 Vertex AI 기업 프리뷰 긍정 테스트",
+      "Fable 5 무료 오늘 자정(7/19) 최종 종료 — 5주·4번 연장 마감",
+      "Claude Opus 5(Honeycomb) Cursor·Vertex AI 목격, 출시 가능성 40% / 7월 말~8월 초 창",
+      "GPT-5.6 Sol METR 벤치마크 조작 공식 확인 — 역대 최고 조작률 / SWE-Bench Pro Fable5(80%)>Opus4.8(69%)>Sol(64.6%)",
+      "TSMC 6월 사상 최대 매출 — AI 칩 수요 2026년 최고치",
+      "8090 Labs Salesforce Ventures $1.35억 시리즈A — 규제 산업 특화 에이전트 코딩"
     ],
     "semiconductor": [
       "SKHY 공모가 $149 시초가 $170 +14% 흥행(7/10) / 조달 $265억 역대 최대 해외기업 ADR / 최태원 오프닝벨",
@@ -696,7 +806,17 @@
       "NVIDIA BioNeMo + Anthropic Claude 통합 / 제약 Top20 중 18개 사용",
       "TSMC Q2 NT조2703억 96억 +36% 역대 최고(7/16) / CAPEX 80~600억 상향 전망",
       "NVIDIA TSMC 첨단 패키징 60% 단독 독점 / CoWoS 2028 3배 확장 컨펌",
-      "Gemini 3.5 Pro GA 오늘 출시(7/16) 3번 연기 후 확정"
+      "Gemini 3.5 Pro GA 오늘 출시(7/16) 3번 연기 후 확정",
+      "TSMC Q2 컨콜 2nm 수율 첫 양산 사이클 사상 최고 / CAPEX 00억 확정 / CoWoS 2028 3배",
+      "Gemini 3.5 Pro 7/16 정식 출시 — 초기 수학·코딩 긍정 반응",
+      "SK하이닉스 Q2 실적 발표일 7월 22일(수) 확정 (이전 7/29 오류 수정)",
+      "SKHY 첫 정규 거래 주간(7/13~18) -11.4% / 이란·고유가·SOX 조정 3중 압박",
+      "ASML Q2 순주문 2억 예상치 6배 초과 — 장비 섹터 신뢰 회복",
+      "삼성전자 Q2 부문별 정식 실적 7/23 예정",
+      "7월 반도체 셀오프 5대 원인: Meta Compute / SK HBM둔화 루머 / Intel18A / AI ROI회의론 / 연준매파",
+      "SK하이닉스 Q2 실적 발표일 7/22(수) 확정 (HBM 둔화 루머 최종 확인 일정)",
+      "삼성전자 PER 6.2배·SK하이닉스 5.8배 극단 저평가 — Micron·TSMC 대비",
+      "역대 최대 어닝 위크 7/23~31: 삼성Q2(7/23)·알파벳(7/24)·SK하이닉스(7/22)·FOMC(7/29~30)·MS·메타·아마존(7/30)"
     ],
     "energy": [
       "미·이란 2차 휴전 합의(7/11 주말) / 7/14 카타르 협상 재개",
@@ -712,7 +832,19 @@
       "EIA 7월 STEO 브렌트 2027년 5 전망(재교전 미반영 / 8월 상향 예정)",
       "Wall Street NACHO(호르무즈 열릴 가능성 없다) 투자전략 재부상",
       "트럼프 이란 발전소 48시간 최후통첩(7/16) / 브렌트 장중 9.50",
-      "골드만삭스 2027년말 걸프 원유 45%+ 호르무즈 우회 가능 추산"
+      "골드만삭스 2027년말 걸프 원유 45%+ 호르무즈 우회 가능 추산",
+      "기뢰 D-DAY(7/17) — 트럼프 제거중 주장 vs 미 국방부 시작도 못했다 / 간극 확인",
+      "이탈리아 군 기뢰 제거 최소 2개월 추산 / IMO 약 80개 부설 추정",
+      "브렌트 8 / NACHO 투자전략 시장 주류화",
+      "MOU 체결일 6/17 — 진짜 30일 시계는 기뢰 제거 시작 후부터",
+      "기뢰 제거 소요기간 현실 확인: 이탈리아 군 2개월+ / 미 국방부 6개월 / 이란 독점권 주장",
+      "브렌트 8 이번 주 고착 / NACHO 전략 월가 주류 에너지 투자 전략 확립",
+      "QatarEnergy LNG 발주 트리거: 기뢰 제거 시작 후 30일 — 진짜 시계 미시작",
+      "미 해군 5일 연속 공습에도 이란 비대칭 전력(속보트·드론·기뢰) 건재 확인",
+      "브렌트 $83~86 / 호르무즈 통행 전쟁 전 138척 대비 14~18% 수준 지속",
+      "카타르 협상 이번 주 재개 예상 / MOU D-31 (8/19 만료)",
+      "Radiant Kaleikos 전출력 150h 이달 발표 임박 / TVA NRC BWRX-300 최종 표결 이번 주",
+      "SKHY 7월 말 필라델피아 반도체지수 편입 / 패시브 $15억 유입 예상"
     ],
     "bio": [
       "AZ×Ionis eplontersen TTR 심근증 Phase 3 실패 — Alnylam·BridgeBio 수혜",
@@ -733,7 +865,15 @@
       "HLB Elevar rivoceranib FDA CRL — 한국 임상 → 미국 자동 승인 아님 확인",
       "삼성바이오로직스 복잡분자 파이프라인 55% 초과(BIO 2026)",
       "gedatolisib FDA 조기 승인(7/16) PDUFA 하루 전 / PIK3CA 비변이 유방암 최초 pan-PI3K 억제제",
-      "VIKTORIA-1 PFS 9.3개월 vs 2.0개월 76% 감소 / RTOR 심사 결과"
+      "VIKTORIA-1 PFS 9.3개월 vs 2.0개월 76% 감소 / RTOR 심사 결과",
+      "gedatolisib 후속 — Celcuity pan-PI3K 리더 부상 / AZ·Novartis·Roche 병용 재설계 압박",
+      "삼성바이오로직스 ADC 생산 수주 공식화(7/17)",
+      "AAIC 2026 도나네맙·레카네맙 실세계 임상 대비 낮은 효용 확인",
+      "GSK camlipixant P2X3 만성 기침 Phase 3 혼재 결과 — 개발 종료",
+      "Enhertu HER2+ 1차 비소세포폐암 화학요법 직접 대체 최초 증명 (Leerink ADC 역사적 평가)",
+      "Chai Discovery + AdvanCell 이틀 연속 올해 최대 벤처 라운드",
+      "mFlusiva(Moderna mRNA 독감 백신) FDA D-17 (8/5)",
+      "FTC × PBM Express Scripts 고가약 선호 합의 — 약가 투명성 강화"
     ],
     "ev_battery": [
       "BYD $22,000 반고체 배터리 EV 출시(업계 최초 대중가격) / 610km",
@@ -753,7 +893,14 @@
       "삼성SDI 2026년 최속 충전 배터리 7종 2개 동시 등재(AMG GT·BMW iX3)",
       "미국 6월 CPI +3.1% 예상 하회 / 7월 FOMC 금리 인하 가능성 상승",
       "리비안 Q2 29832대 역대 최대 분기 인도",
-      "삼성SDI 전고체 배터리 2028년 양산 공식 확정 — CATL 발언과 정면 배치"
+      "삼성SDI 전고체 배터리 2028년 양산 공식 확정 — CATL 발언과 정면 배치",
+      "노르웨이 2025년 EV 92% — 세계 최초 내연기관 사실상 종료",
+      "폭스콘 타타그룹 인도 9억 전기차 배터리 공장 합작",
+      "테슬라 × 일본 7-일레븐 전국 슈퍼차저+V2G 파트너십 — 편의점 EV 에너지 허브 공식화",
+      "퀀텀스케이프 혼다 파트너십 추가 (VW에 이어) — 전고체 생태계 확장",
+      "스텔란티스 팩토리얼 9.5% 지분 공시 확인",
+      "CATL 불가리아 착공·알펜 파트너십·헝가리 확장 유럽 ESS 전방위 공세",
+      "빌 포드 중국 경쟁 대비 촉구 — FEOC 안전 K배터리 수요 강화 구조"
     ],
     "defense": [
       "앙카라 숨은 계약 추가 공개: ATACMS 독일 공동생산·토마호크 독일 구매·NASAMS 벨기에 10개 포대",
@@ -772,7 +919,14 @@
       "중국 푸젠함 J-15T 전자식 캐터펄트 타격 능력 현실화 — 미F-35C vs 중J-15T",
       "판버러 D-5(7/20) / 보잉 F-47 세인트루이스 공장 조립 확인",
       "이재명 대통령 트럼프에 KF-21 공동 마케팅 제안 / 트럼프 훌륭한 전투기 화답",
-      "미 해군 FF(X) K-조선 분산 건조 참여 윤곽"
+      "미 해군 FF(X) K-조선 분산 건조 참여 윤곽",
+      "이번 주 방산 3대 요약: PAC-3 50억 / KF-21 트럼프 화답 / 판버러 D-2(7/20)",
+      "NATO 헤이그 D-7(7/25~28)",
+      "판버러 에어쇼 2026 내일(7/20) 개막 — 78년 역대 최대 1,400개사·100개국",
+      "한국 F-15K 59대 BAE시스템스 AN/ALQ-250 EPAWSS 전자전 수트 장착",
+      "사우디 APKWS II 2만기 19억 6천만달러 FMS 승인 — BAE시스템스 단독 수혜",
+      "중국 J-16 대량 공대공 미사일 탑재 공개 — 미사일 포화 BVR 전략 시각화",
+      "이스라엘 드론 군집 전체 무력화 기술 개발 중"
     ],
     "shipbuilding": [
       "한화 필리 마톤 알로하 클래스 2번 선박 건조 진전",
@@ -794,7 +948,18 @@
       "폴라리스 쉬핑 헝리중공업 뉴캐슬막스 발주 — 범용 벌크 中·고부가 K조선 분리",
       "EXMAR HD현대 VLGC 4척 발주",
       "Drewry 컨테이너 지수 9주 연속 상승",
-      "이란 쿠웨이트 해양 시추 플랫폼 공격 — 걸프 해양 인프라 리스크 확산"
+      "이란 쿠웨이트 해양 시추 플랫폼 공격 — 걸프 해양 인프라 리스크 확산",
+      "한화오션 MOL LNG 운반선 2척 수주(7/17)",
+      "기뢰 제거 미시작 → QatarEnergy 발주 파이프라인 재가동 시계 미정",
+      "Drewry 컨테이너 지수 10주 연속 상승",
+      "국적 선박 24척·선원 137명 페르시아만 억류 지속",
+      "이번 주 K조선 수주: 한화오션 MOL LNG 2척 / EXMAR VLGC 4척 / HD현대 MR탱커 / 삼성 크루즈 3번째",
+      "K조선 LNG 진짜 30일 시계 미시작 / QatarEnergy 20척+ 대기 중",
+      "이란 비대칭 전력 미 해군 5일 공습에도 건재 — 호르무즈 위기 장기 구조화 확정",
+      "현대·기아 자율 로봇 HMM 선박 실전 테스트 세계 최초",
+      "존스법 150일 웨이버 — K-조선 미국 국내 해운 법적 창구",
+      "EU ETS 완화 제안 — 단기 친환경 수요 지연 가능·장기 IMO 목표 불변",
+      "MOU D-28 (8/16 만료) — 마지막 협상 창"
     ],
     "robot": [
       "EgoScale 논문 로봇에도 스케일링 법칙 작동 확인(2026년 상반기 최대 발견)",
@@ -812,7 +977,16 @@
       "3개 대륙 6개 전용 생산 라인 가동 / 2025년 13000대 출하(Omdia)",
       "밸류에이션 지형: Figure 90억 vs Agility 5억 SPAC — 실적 보고서가 재조정 예고",
       "Figure AI BotQ 주당 55대 생산 + 헬릭스 AI 폐쇄 루프",
-      "현대차 Boston Dynamics D-4(7/20) / Tesla Optimus D-15(7/31 목표)"
+      "현대차 Boston Dynamics D-4(7/20) / Tesla Optimus D-15(7/31 목표)",
+      "현대차 Boston Dynamics 이사회 D-3(7/20)",
+      "Unitree STAR Market IPO D-7(7/24 전후) .9B",
+      "Tesla Optimus Gen3 D-14(7/31 목표 소량 생산)",
+      "이번 주 로봇 3대 요약: EgoScale 스케일링 법칙 / 병목 신뢰성 이동 / 자본 집중 558억",
+      "현대차 Boston Dynamics D-2(7/20) / Unitree STAR Market D-6 / Tesla Optimus D-13(7/31)",
+      "현대차그룹 소프트뱅크 풋옵션 행사(7/16) — Boston Dynamics 100% 완전 인수 절차 개시",
+      "NEURA 4NE1 Gen3 가격 공개: 1~19대 €98,000 / 20대+ €60,000 / Mini €19,999",
+      "현대·기아 자율 로봇 HMM 선박 실전 테스트 — 세계 최초",
+      "7월 로봇 5대 변화: Agility SPAC / 현대 BD 통합 / Tesla Optimus3 생산 착수 / AgiBot 99% / K-Scale 폐업"
     ],
     "media": [
       "BTS 뮌헨 D-DAY(7/11~12) → 파리(7/17~18) → FIFA 결승 D-8(7/19)",
@@ -825,7 +999,14 @@
       "박진영 JYP 장관급 정부 직위 임명 — K팝 국가 전략 자산 공식화",
       "BTS 파리 D-2(7/17~18) → FIFA 결승 D-4(7/19)",
       "j-hope LIFE ON THE ROAD FIFA 공식 사운드트랙(7/16)",
-      "BIGBANG 20주년 컴백 하반기 공식화 — G-Dragon·T.O.P·태양·대성 4인 전원"
+      "BIGBANG 20주년 컴백 하반기 공식화 — G-Dragon·T.O.P·태양·대성 4인 전원",
+      "BTS ARIRANG 파리 스타드 드 프랑스 Day 1(7/17) / FIFA 결승 D-2",
+      "fromis_9 GLOW ME D-4(7/21)",
+      "BTS 파리 Day 2 완결(7/18) / 16만명×2일",
+      "FIFA 결승 하프타임쇼(7/19) 한국시간 7/20 새벽 4:55 / 11분 / 크리스 마틴 기획",
+      "BABYMONSTER CHOOM 후쿠오카 완결(7/18)",
+      "fromis_9 GLOW ME D-3(7/21)",
+      "FIFA 결승 하프타임쇼 BTS·마돈나·샤키라·저스틴 비버 오늘(7/19) 한국시간 새벽 4:55 — K팝 역사상 최대 단일 이벤트"
     ]
   }
 }
