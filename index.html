@@ -851,6 +851,44 @@ for (var mi = 0; mi < modals.length; mi++) {
   })(modals[mi]);
 }
 
+function loadMonth() {
+  var msg = document.getElementById('fmsg');
+  msg.className = 'fmsg';
+  msg.textContent = '생성 중...';
+
+  var schedule = buildSchedule(curY, curM);
+  var cnt = 0;
+
+  schedule.forEach(function(ev) {
+    if (!ev.date || !ev.company) return;
+    if (!allEvs[ev.date]) allEvs[ev.date] = [];
+    var dup = false;
+    for (var i=0; i<allEvs[ev.date].length; i++) {
+      var e = allEvs[ev.date][i];
+      var ec = (e.company||'').slice(0,15);
+      var nc = (ev.company||'').slice(0,15);
+      if (ec === nc) { dup = true; break; }
+    }
+    if (!dup) {
+      allEvs[ev.date].push({
+        id: makeId(),
+        type: ev.type || 'manual',
+        company: ev.company,
+        detail: ev.detail || '',
+        positive: ev.positive === true ? true : ev.positive === false ? false : null,
+        src: ev.src || 'gen'
+      });
+      cnt++;
+    }
+  });
+
+  saveStorage();
+  msg.className = 'fmsg ok';
+  msg.textContent = '✓ ' + cnt + '개 일정 추가 (' + curY + '년 ' + MONTHS[curM] + ')';
+  renderCalendar();
+  if (document.getElementById('plist').classList.contains('show')) renderList();
+}
+
 function dedupMonth() {
   var prefix = curY + '-' + zp(curM + 1);
   var total = 0, removed = 0;
